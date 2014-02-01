@@ -1,0 +1,47 @@
+<%= form_for(@shipment) do |f| %>
+  <% if @shipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
+
+      <ul>
+      <% @shipment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pieces_count %><br>
+    <%= f.number_field :pieces_count %>
+  </div>
+  <div class="field">
+    <%= f.label :gross_weight_lbs %><br>
+    <%= f.text_field :gross_weight_lbs %>
+  </div>
+  <div class="field">
+    <%= f.label :gross_volume_cuft %><br>
+    <%= f.text_field :gross_volume_cuft %>
+  </div>
+  <div class="field">
+    <%= f.label :equiptype %><br>
+    <%= f.text_field :equiptype %>
+  </div>
+  <div class="field">
+    <%= f.label :wt_util %><br>
+    <%= f.text_field :wt_util %>
+  </div>
+  <div class="field">
+    <%= f.label :cb_util %><br>
+    <%= f.text_field :cb_util %>
+  </div>
+
+<%= f.fields_for :pieces do |builder| %>
+  <%= render 'piece_fields', f: builder %>
+<% end %>
+<%= link_to_add_fields "Add Piece", f, :pieces %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

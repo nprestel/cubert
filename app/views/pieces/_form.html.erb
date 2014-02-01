@@ -1,0 +1,49 @@
+<%= form_for(@piece) do |f| %>
+  <% if @piece.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@piece.errors.count, "error") %> prohibited this piece from being saved:</h2>
+
+      <ul>
+      <% @piece.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :count %><br>
+    <%= f.number_field :count %>
+  </div>
+  <div class="field">
+    <%= f.label :length_ins %><br>
+    <%= f.text_field :length_ins %>
+  </div>
+  <div class="field">
+    <%= f.label :width_ins %><br>
+    <%= f.text_field :width_ins %>
+  </div>
+  <div class="field">
+    <%= f.label :height_ins %><br>
+    <%= f.text_field :height_ins %>
+  </div>
+  <div class="field">
+    <%= f.label :stackability %><br>
+    <%= f.number_field :stackability %>
+  </div>
+  <div class="field">
+    <%= f.label :weight_lbs %><br>
+    <%= f.text_field :weight_lbs %>
+  </div>
+  <div class="field">
+    <%= f.label :volume_cuft %><br>
+    <%= f.text_field :volume_cuft %>
+  </div>
+  <div class="field">
+    <%= f.label :shipment_id %><br>
+    <%= f.number_field :shipment_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

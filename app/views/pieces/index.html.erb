@@ -1,0 +1,41 @@
+<h1>Listing pieces</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Count</th>
+      <th>Length ins</th>
+      <th>Width ins</th>
+      <th>Height ins</th>
+      <th>Stackability</th>
+      <th>Weight lbs</th>
+      <th>Volume cuft</th>
+      <th>Shipment</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pieces.each do |piece| %>
+      <tr>
+        <td><%= piece.count %></td>
+        <td><%= piece.length_ins %></td>
+        <td><%= piece.width_ins %></td>
+        <td><%= piece.height_ins %></td>
+        <td><%= piece.stackability %></td>
+        <td><%= piece.weight_lbs %></td>
+        <td><%= piece.volume_cuft %></td>
+        <td><%= piece.shipment_id %></td>
+        <td><%= link_to 'Show', piece %></td>
+        <td><%= link_to 'Edit', edit_piece_path(piece) %></td>
+        <td><%= link_to 'Destroy', piece, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Piece', new_piece_path %>

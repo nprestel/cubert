@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  count: 1
+  length_ins: 1.5
+  width_ins: 1.5
+  height_ins: 1.5
+  stackability: 1
+  weight_lbs: 1.5
+  volume_cuft: 1.5
+  shipment_id: 1
+
+two:
+  count: 1
+  length_ins: 1.5
+  width_ins: 1.5
+  height_ins: 1.5
+  stackability: 1
+  weight_lbs: 1.5
+  volume_cuft: 1.5
+  shipment_id: 1

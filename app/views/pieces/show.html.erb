@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @piece.count %>
+</p>
+
+<p>
+  <strong>Length ins:</strong>
+  <%= @piece.length_ins %>
+</p>
+
+<p>
+  <strong>Width ins:</strong>
+  <%= @piece.width_ins %>
+</p>
+
+<p>
+  <strong>Height ins:</strong>
+  <%= @piece.height_ins %>
+</p>
+
+<p>
+  <strong>Stackability:</strong>
+  <%= @piece.stackability %>
+</p>
+
+<p>
+  <strong>Weight lbs:</strong>
+  <%= @piece.weight_lbs %>
+</p>
+
+<p>
+  <strong>Volume cuft:</strong>
+  <%= @piece.volume_cuft %>
+</p>
+
+<p>
+  <strong>Shipment:</strong>
+  <%= @piece.shipment_id %>
+</p>
+
+<%= link_to 'Edit', edit_piece_path(@piece) %> |
+<%= link_to 'Back', pieces_path %>

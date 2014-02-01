@@ -1,0 +1,28 @@
+<h1>Listing equipment</h1>
+
+<table>
+
+<% @equipment.each do |equipment| %>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td>
+      <%= image_tag equipment.equip_image(:thumb) %>
+    </td>
+    <td class="list_description">
+      <dl>
+        <dt><%= equipment.name %></dt>
+        <dd><%= truncate(strip_tags(equipment.description), length: 80) %></dd>
+      </dl>
+    </td>
+    <td class="list_actions">
+      <%= link_to 'Show', equipment %><br/>
+      <%= link_to 'Edit', edit_equipment_path(equipment), data: { no_turbolink: true } %><br/>
+      <%= link_to 'Delete', equipment, method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Equipment', new_equipment_path, data: { no_turbolink: true } %>

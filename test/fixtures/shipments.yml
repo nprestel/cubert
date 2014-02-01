@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pieces_count: 1
+  gross_weight_lbs: 1.5
+  gross_volume_cuft: 1.5
+  equiptype: MyString
+  wt_util: 1.5
+  cb_util: 1.5
+
+two:
+  pieces_count: 1
+  gross_weight_lbs: 1.5
+  gross_volume_cuft: 1.5
+  equiptype: MyString
+  wt_util: 1.5
+  cb_util: 1.5

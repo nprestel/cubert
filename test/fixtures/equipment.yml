@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  mode: MyString
+  wt_limit_lbs: 1.5
+  cb_limit_cuft: 1.5
+  length1_ins: 1.5
+  width1_ins: 1.5
+  height1_ins: 1.5
+  length2_ins: 1.5
+  width2_ins: 1.5
+  height2_ins: 1.5
+  length3_ins: 1.5
+  width3_ins: 1.5
+  height3_ins: 1.5
+  image_url: MyString
+
+two:
+  name: MyString
+  description: MyText
+  mode: MyString
+  wt_limit_lbs: 1.5
+  cb_limit_cuft: 1.5
+  length1_ins: 1.5
+  width1_ins: 1.5
+  height1_ins: 1.5
+  length2_ins: 1.5
+  width2_ins: 1.5
+  height2_ins: 1.5
+  length3_ins: 1.5
+  width3_ins: 1.5
+  height3_ins: 1.5
+  image_url: MyString

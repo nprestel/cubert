@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @equipment.name %></h1>
+<h2><%= @equipment.description %></h2>
+
+<td>
+  <%= image_tag @equipment.equip_image(:medium) %>
+</td>
+
+<p>
+  <strong>Mode:</strong>
+  <%= @equipment.mode %>
+</p>
+
+<p>
+  <strong>Wt limit lbs:</strong>
+  <%= @equipment.wt_limit_lbs %>
+</p>
+
+<p>
+  <strong>Cb limit cuft:</strong>
+  <%= @equipment.cb_limit_cuft %>
+</p>
+
+<p>
+  <strong>Length1 ins:</strong>
+  <%= @equipment.length1_ins %>
+</p>
+
+<p>
+  <strong>Width1 ins:</strong>
+  <%= @equipment.width1_ins %>
+</p>
+
+<p>
+  <strong>Height1 ins:</strong>
+  <%= @equipment.height1_ins %>
+</p>
+
+<p>
+  <strong>Length2 ins:</strong>
+  <%= @equipment.length2_ins %>
+</p>
+
+<p>
+  <strong>Width2 ins:</strong>
+  <%= @equipment.width2_ins %>
+</p>
+
+<p>
+  <strong>Height2 ins:</strong>
+  <%= @equipment.height2_ins %>
+</p>
+
+<p>
+  <strong>Length3 ins:</strong>
+  <%= @equipment.length3_ins %>
+</p>
+
+<p>
+  <strong>Width3 ins:</strong>
+  <%= @equipment.width3_ins %>
+</p>
+
+<p>
+  <strong>Height3 ins:</strong>
+  <%= @equipment.height3_ins %>
+</p>
+
+<button type="button" class="btn btn-default btn-sm">
+<a href="<%= equipment_index_path %>"<span class="glyphicon glyphicon-backward"></span> Back | </a> 
+</button>
+
+<%= link_to 'Edit', edit_equipment_path(@equipment), data: { no_turbolink: true } %><br/>
+

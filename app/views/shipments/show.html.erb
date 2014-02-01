@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pieces count:</strong>
+  <%= @shipment.pieces_count %>
+</p>
+
+<p>
+  <strong>Gross weight lbs:</strong>
+  <%= @shipment.gross_weight_lbs %>
+</p>
+
+<p>
+  <strong>Gross volume cuft:</strong>
+  <%= @shipment.gross_volume_cuft %>
+</p>
+
+<p>
+  <strong>Equiptype:</strong>
+  <%= @shipment.equiptype %>
+</p>
+
+<p>
+  <strong>Wt util:</strong>
+  <%= @shipment.wt_util %>
+</p>
+
+<p>
+  <strong>Cb util:</strong>
+  <%= @shipment.cb_util %>
+</p>
+
+<%= link_to 'Edit', edit_shipment_path(@shipment) %> |
+<%= link_to 'Back', shipments_path %>
