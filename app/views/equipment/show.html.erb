@@ -67,9 +67,5 @@
   <%= @equipment.height3_ins %>
 </p>
 
-<button type="button" class="btn btn-default btn-sm">
-<a href="<%= equipment_index_path %>"<span class="glyphicon glyphicon-backward"></span> Back | </a> 
-</button>
-
-<%= link_to 'Edit', edit_equipment_path(@equipment), data: { no_turbolink: true } %><br/>
-
+<%= render 'backbtn' %> |
+<%= render 'editbtn' %>

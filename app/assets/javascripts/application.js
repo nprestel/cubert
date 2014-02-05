@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require rails.validations
 //= require rails.validations.simple_form
 //= require_self
@@ -21,7 +20,7 @@
 //= require_tree .
 
 jQuery(document).ready(function($){
-    $("#container").hide();
+    $("#container7").hide();
     $("#container2").hide();
     $("#container3").hide();
     $("#container4").hide();

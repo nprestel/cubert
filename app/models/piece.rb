@@ -2,7 +2,6 @@ class Piece < ActiveRecord::Base
 
   belongs_to :shipment, :counter_cache => true
    include ActionView::Helpers::NumberHelper
-
     # validates_presence_of :count, :entry_length, :entry_width, :entry_height, :dims_uofm, :stackability, :entry_weight, :wt_uofm
       
     def weight_utilization(shipweight, equiptype)
