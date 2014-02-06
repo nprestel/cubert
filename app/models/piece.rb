@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: pieces
+#
+#  id           :integer          not null, primary key
+#  count        :integer
+#  length_ins   :float
+#  width_ins    :float
+#  height_ins   :float
+#  stackability :integer
+#  weight_lbs   :float
+#  volume_cuft  :float
+#  shipment_id  :integer
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
 class Piece < ActiveRecord::Base
 
   belongs_to :shipment, :counter_cache => true

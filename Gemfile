@@ -49,3 +49,5 @@ gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'rmagick', '2.13.2'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
+
+gem 'annotate', ">=2.6.0"

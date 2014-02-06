@@ -1,3 +1,30 @@
+# == Schema Information
+#
+# Table name: equipment
+#
+#  id                       :integer          not null, primary key
+#  name                     :string(255)
+#  description              :text
+#  mode                     :string(255)
+#  wt_limit_lbs             :float
+#  cb_limit_cuft            :float
+#  length1_ins              :float
+#  width1_ins               :float
+#  height1_ins              :float
+#  length2_ins              :float
+#  width2_ins               :float
+#  height2_ins              :float
+#  length3_ins              :float
+#  width3_ins               :float
+#  height3_ins              :float
+#  created_at               :datetime
+#  updated_at               :datetime
+#  equip_image_file_name    :string(255)
+#  equip_image_content_type :string(255)
+#  equip_image_file_size    :integer
+#  equip_image_updated_at   :datetime
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

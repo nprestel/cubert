@@ -1,4 +1,4 @@
-<%= form_for(@shipment) do |f| %>
+<%= form_for(@shipment, html: { class: 'form-horizontal' }) do |f| %>
   <% if @shipment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+<% 
+=begin %>
   <div class="field">
     <%= f.label :pieces_count %><br>
     <%= f.number_field :pieces_count %>
@@ -35,13 +37,15 @@
     <%= f.label :cb_util %><br>
     <%= f.text_field :cb_util %>
   </div>
+<% 
+=end %>
 
 <%= f.fields_for :pieces do |builder| %>
   <%= render 'piece_fields', f: builder %>
 <% end %>
 <%= link_to_add_fields "Add Piece", f, :pieces %>
 
-  <div class="actions">
+  <div class="form-actions">
     <%= f.submit %>
   </div>
 <% end %>
