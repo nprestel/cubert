@@ -17,6 +17,9 @@
 //= require_self
 // Loads all Bootstrap javascripts
 //= require bootstrap
+//= require bootstrap/scrollspy
+//= require bootstrap/modal
+//= require bootstrap/dropdown
 //= require_tree .
 
 jQuery(document).ready(function($){

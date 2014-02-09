@@ -21,6 +21,10 @@ class Piece < ActiveRecord::Base
    include ActionView::Helpers::NumberHelper
     # validates_presence_of :count, :entry_length, :entry_width, :entry_height, :dims_uofm, :stackability, :entry_weight, :wt_uofm
       
+  def volume_cuft
+    self.length_ins * self.width_ins * self.height_ins
+  end
+  
     def weight_utilization(shipweight, equiptype)
       puts number_to_percentage(shipweight / Equipment.find(:first, :conditions => {:code => equiptype}).wt_limit_lbs * 100, :precision => 2)
     end

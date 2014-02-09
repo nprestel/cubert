@@ -51,3 +51,5 @@ gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 
 gem 'annotate', ">=2.6.0"
+
+gem 'compass-rails'

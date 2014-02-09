@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Pieces count:</strong>
+  <strong>Different Shipping Units:</strong>
   <%= @shipment.pieces_count %>
 </p>
 
@@ -29,6 +29,12 @@
   <strong>Cb util:</strong>
   <%= @shipment.cb_util %>
 </p>
+
+<ol>
+  <% for piece in @shipment.pieces %>
+  <li><%= h piece.count %></li>
+  <% end %>
+</ol>
 
 <%= render 'backbtn' %> |
 <%= render 'editbtn' %>
