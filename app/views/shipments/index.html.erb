@@ -35,7 +35,7 @@
 <br>
 
 <%= 
-if !@shipment.nil?
+if !Shipment.any?
   link_to 'New Shipment', new_shipment_path
 end
 %>
