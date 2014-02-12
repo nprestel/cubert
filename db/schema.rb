@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140130023346) do
+ActiveRecord::Schema.define(version: 20140211013356) do
 
   create_table "equipment", force: true do |t|
     t.string   "name"
@@ -47,6 +47,9 @@ ActiveRecord::Schema.define(version: 20140130023346) do
     t.integer  "shipment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.float    "gross_volume_cuft"
+    t.float    "gross_weight_lbs"
   end
 
   create_table "shipments", force: true do |t|

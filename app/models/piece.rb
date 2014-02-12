@@ -18,11 +18,20 @@
 class Piece < ActiveRecord::Base
 
   belongs_to :shipment, :counter_cache => true
+  before_save :set_volume_cuft, :set_gross_volume_cuft, :set_gross_weight_lbs
    include ActionView::Helpers::NumberHelper
     # validates_presence_of :count, :entry_length, :entry_width, :entry_height, :dims_uofm, :stackability, :entry_weight, :wt_uofm
       
-  def volume_cuft
-    self.length_ins * self.width_ins * self.height_ins
+  def set_volume_cuft
+    self.volume_cuft = (self.length_ins/12) * (self.width_ins/12) * (self.height_ins/12)
+  end
+  
+  def set_gross_volume_cuft
+    self.gross_volume_cuft = self.volume_cuft * self.count
+  end
+  
+  def set_gross_weight_lbs
+    self.gross_weight_lbs = self.weight_lbs * self.count
   end
   
     def weight_utilization(shipweight, equiptype)

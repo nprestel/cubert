@@ -6,16 +6,6 @@
 </p>
 
 <p>
-  <strong>Gross weight lbs:</strong>
-  <%= @shipment.gross_weight_lbs %>
-</p>
-
-<p>
-  <strong>Gross volume cuft:</strong>
-  <%= @shipment.gross_volume_cuft %>
-</p>
-
-<p>
   <strong>Equiptype:</strong>
   <%= @shipment.equiptype %>
 </p>
@@ -26,15 +16,56 @@
 </p>
 
 <p>
-  <strong>Cb util:</strong>
-  <%= @shipment.cb_util %>
+  <strong>Shipping Unit (SU) Details</strong>
 </p>
 
-<ol>
-  <% for piece in @shipment.pieces %>
-  <li><%= h piece.count %></li>
-  <% end %>
-</ol>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Length</th>
+      <th>Width</th>
+      <th>Height</th>
+      <th>SU Volume (cuft)</th>
+      <th>SU Weight (lbs)</th>
+      <th>Stackability</th>
+      <th>How Many?</th>
+      <th>Gross Volume (cuft)</th>
+      <th>Gross Weight (lbs)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% for piece in @shipment.pieces %>
+      <tr>
+        <td><%= h piece.name %></td>
+        <td><%= h piece.length_ins %></td>
+        <td><%= h piece.width_ins %></td>
+        <td><%= h piece.height_ins %></td>
+        <td><%= h number_with_precision(piece.volume_cuft, precision: 1, delimiter: ',') %></td>
+        <td><%= h number_with_precision(piece.weight_lbs, precision: 0, delimiter: ',') %></td>
+        <td><%= h piece.stackability %></td>
+        <td><%= h piece.count %></td>
+        <td><%= h number_with_precision(piece.gross_volume_cuft, precision: 0, delimiter: ',') %></td>
+        <td><%= h number_with_precision(piece.gross_weight_lbs, precision: 0, delimiter: ',') %></td>
+      </tr>
+      <tr>
+    <% end %>
+  </tbody>
+
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= number_with_precision(@shipment.gross_volume_cuft, precision: 0, delimiter: ',') %></td>
+        <td><%= number_with_precision(@shipment.gross_weight_lbs, precision: 0, delimiter: ',') %></td>
+      </tr>
+</table>
 
 <%= render 'backbtn' %> |
 <%= render 'editbtn' %>

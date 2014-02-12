@@ -1,6 +1,6 @@
-<h1>Listing shipments</h1>
+<h1>Your Shipment</h1>
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Pieces count</th>
@@ -24,9 +24,9 @@
         <td><%= shipment.equiptype %></td>
         <td><%= shipment.wt_util %></td>
         <td><%= shipment.cb_util %></td>
-        <td><%= link_to 'Show', shipment %></td>
-        <td><%= link_to 'Edit', edit_shipment_path(shipment) %></td>
-        <td><%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detail', shipment, class: "btn btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_shipment_path(shipment), class: "btn btn-sm" %></td>
+        <td><%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,8 @@
 
 <br>
 
-<%= link_to 'New Shipment', new_shipment_path %>
+<%= 
+if !@shipment.nil?
+  link_to 'New Shipment', new_shipment_path
+end
+%>

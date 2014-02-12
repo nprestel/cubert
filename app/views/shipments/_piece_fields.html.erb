@@ -1,12 +1,20 @@
 <fieldset>
-  <%= f.label :count, "Piece Count" %>
-  <%= f.number_field :count %><br>
-  <%= f.label :length_ins %>
-  <%= f.number_field :length_ins %><br>
-  <%= f.label :width_ins %>
-  <%= f.number_field :width_ins %><br>
-  <%= f.label :height_ins %>
-  <%= f.number_field :height_ins %><br>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name, class: "form-control" %><br>
+  <div class="control-group col-xs-2">
+    <%= f.label :length_ins, "Length" %>
+    <%= f.number_field :length_ins, class: "form-control"  %><br>
+    <%= f.label :width_ins, "Width" %>
+    <%= f.number_field :width_ins, class: "form-control"  %><br>
+    <%= f.label :height_ins, "Height" %>
+    <%= f.number_field :height_ins, class: "form-control"  %><br>
+  </div>
+  <%= f.label :weight_lbs, "Weight" %>
+  <%= f.number_field :weight_lbs, class: "form-control"  %><br>
+  <%= f.label :stackability, "Stackability" %>
+  <%= f.number_field :stackability, class: "form-control"  %><br>
+  <%= f.label :count, "How Many" %>
+  <%= f.number_field :count, class: "form-control"  %><br>
   <%= f.check_box :_destroy %>
   <%= f.label :_destroy, "Remove Piece" %>
 </fieldset>
