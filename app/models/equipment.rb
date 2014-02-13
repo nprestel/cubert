@@ -34,8 +34,8 @@ class Equipment < ActiveRecord::Base
     :bucket => 'lajek_images',
     :s3_host_name => 's3.amazonaws.com',
     :s3_credentials => {
-      :access_key_id => 'AKIAIYNX67DR4R3QOS3A',
-      :secret_access_key => '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'
+      :access_key_id => ENV["CUBERT_AWSKEYID"],
+      :secret_access_key => ENV["CUBERT_AWSSECRETKEY"]
     }
   validates :name, :description, :mode, presence: true 
   validates :length1_ins, numericality: {greater_than_or_equal_to:0.01}
