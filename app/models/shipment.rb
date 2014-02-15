@@ -14,9 +14,8 @@
 #
 
 class Shipment < ActiveRecord::Base
-  # belongs_to :equipment
   has_many :pieces, :dependent => :destroy
-  has_one :equipment
+  belongs_to :equipment
   
   accepts_nested_attributes_for :pieces, :allow_destroy => true
   include ActionView::Helpers::NumberHelper

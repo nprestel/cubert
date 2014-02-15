@@ -11,6 +11,10 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :equiptype %><br>
+    <%= f.collection_select :equiptype, Equipment.all, :id, :equip_name %>
+  </div>
 
 <%= f.fields_for :pieces do |builder| %>
   <%= render 'piece_fields', f: builder %>

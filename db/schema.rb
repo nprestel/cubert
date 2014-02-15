@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140211013356) do
+ActiveRecord::Schema.define(version: 20140215193440) do
 
   create_table "equipment", force: true do |t|
-    t.string   "name"
+    t.string   "equip_name"
     t.text     "description"
     t.string   "mode"
     t.float    "wt_limit_lbs"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140211013356) do
     t.integer  "shipment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
+    t.string   "piece_name"
     t.float    "gross_volume_cuft"
     t.float    "gross_weight_lbs"
   end
