@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :equiptype %><br>
-    <%= f.collection_select :equiptype, Equipment.all, :id, :equip_name %>
+    <%= f.collection_select :equiptype, Equipment.all, :equip_name, :description %>
   </div>
 
 <%= f.fields_for :pieces do |builder| %>

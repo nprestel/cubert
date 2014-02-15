@@ -70,6 +70,6 @@ class ShipmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def shipment_params
       params.require(:shipment).permit(:pieces_count, :gross_weight_lbs, :gross_volume_cuft, :equiptype, :wt_util, :cb_util, {
-      pieces_attributes: [:id, :count, :length_ins, :width_ins, :height_ins, :stackability, :weight_lbs, :volume_cuft, :shipment_id, :name, :_destroy]})
+      pieces_attributes: [:id, :count, :length_ins, :width_ins, :height_ins, :stackability, :weight_lbs, :volume_cuft, :shipment_id, :piece_name, :_destroy]})
     end
 end
