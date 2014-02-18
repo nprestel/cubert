@@ -28,7 +28,8 @@ class ShipmentsController < ApplicationController
 
     respond_to do |format|
       if @shipment.save
-        format.html { redirect_to @shipment, notice: 'Shipment was successfully created.' }
+        format.html {redirect_to({:action => :index}, {:notice => 'Shipment was successfully created.'})}
+        # format.html { redirect_to action: "index", notice: 'Shipment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @shipment }
       else
         format.html { render action: 'new' }

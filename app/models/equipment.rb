@@ -3,7 +3,7 @@
 # Table name: equipment
 #
 #  id                       :integer          not null, primary key
-#  name                     :string(255)
+#  equip_name                     :string(255)
 #  description              :text
 #  mode                     :string(255)
 #  wt_limit_lbs             :float
@@ -39,7 +39,8 @@ class Equipment < ActiveRecord::Base
       :access_key_id => ENV["CUBERT_AWSKEYID"],
       :secret_access_key => ENV["CUBERT_AWSSECRETKEY"]
     }
-  validates :name, :description, :mode, presence: true 
+  validates :equip_name, :description, :mode, presence: true 
+  validates :equip_name, uniqueness: { case_sensitive: false }
   validates :length1_ins, numericality: {greater_than_or_equal_to:0.01}
   validates :width1_ins, numericality: {greater_than_or_equal_to:0.01}
   validates :height1_ins, numericality: {greater_than_or_equal_to:0.01}
@@ -51,5 +52,4 @@ class Equipment < ActiveRecord::Base
    #errors.add(:cb_limit_cuft, "Larger than product of provided dims") unless cb_limit_cuft < ((length1_ins*width1_ins*height1_ins)+(length2_ins*width2_ins*height2_ins)+(length3_ins*width3_ins*height3_ins))
   #end
   
-  validates :name, uniqueness: true
 end

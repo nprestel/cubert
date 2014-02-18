@@ -1,12 +1,12 @@
 <fieldset>
-  <%= f.label :piece_name, "Name" %>
+  <%= f.label :piece_name, "Name", class: "control-label" %>
   <%= f.text_field :piece_name, class: "form-control" %><br>
-  <div class="control-group col-xs-2">
-    <%= f.label :length_ins, "Length" %>
-    <%= f.number_field :length_ins, class: "form-control"  %><br>
-    <%= f.label :width_ins, "Width" %>
-    <%= f.number_field :width_ins, class: "form-control"  %><br>
-    <%= f.label :height_ins, "Height" %>
+  <div class="form-group col-xs-2">
+    <%= f.label :length_ins, "Length", class: "control-label" %>
+    <%= f.number_field :length_ins, class: "form-control"  %>
+    <%= f.label :width_ins, "Width", class: "control-label" %>
+    <%= f.number_field :width_ins, class: "form-control"  %>
+    <%= f.label :height_ins, "Height", class: "control-label" %>
     <%= f.number_field :height_ins, class: "form-control"  %><br>
   </div>
   <%= f.label :weight_lbs, "Weight" %>

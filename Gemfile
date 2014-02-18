@@ -55,3 +55,5 @@ gem 'annotate', ">=2.6.0"
 gem 'compass-rails'
 
 gem "figaro"
+
+gem 'devise'
