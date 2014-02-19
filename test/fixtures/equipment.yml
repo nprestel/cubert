@@ -3,7 +3,7 @@
 # Table name: equipment
 #
 #  id                       :integer          not null, primary key
-#  name                     :string(255)
+#  equip_name               :string(255)
 #  description              :text
 #  mode                     :string(255)
 #  wt_limit_lbs             :float

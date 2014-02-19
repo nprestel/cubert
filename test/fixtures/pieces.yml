@@ -2,17 +2,20 @@
 #
 # Table name: pieces
 #
-#  id           :integer          not null, primary key
-#  count        :integer
-#  length_ins   :float
-#  width_ins    :float
-#  height_ins   :float
-#  stackability :integer
-#  weight_lbs   :float
-#  volume_cuft  :float
-#  shipment_id  :integer
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id                :integer          not null, primary key
+#  count             :integer
+#  length_ins        :float
+#  width_ins         :float
+#  height_ins        :float
+#  stackability      :integer
+#  weight_lbs        :float
+#  volume_cuft       :float
+#  shipment_id       :integer
+#  created_at        :datetime
+#  updated_at        :datetime
+#  piece_name        :string(255)
+#  gross_volume_cuft :float
+#  gross_weight_lbs  :float
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

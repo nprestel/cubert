@@ -2,23 +2,28 @@
 #
 # Table name: pieces
 #
-#  id           :integer          not null, primary key
-#  count        :integer
-#  length_ins   :float
-#  width_ins    :float
-#  height_ins   :float
-#  stackability :integer
-#  weight_lbs   :float
-#  volume_cuft  :float
-#  shipment_id  :integer
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id                :integer          not null, primary key
+#  count             :integer
+#  length_ins        :float
+#  width_ins         :float
+#  height_ins        :float
+#  stackability      :integer
+#  weight_lbs        :float
+#  volume_cuft       :float
+#  shipment_id       :integer
+#  created_at        :datetime
+#  updated_at        :datetime
+#  piece_name        :string(255)
+#  gross_volume_cuft :float
+#  gross_weight_lbs  :float
 #
 
 class Piece < ActiveRecord::Base
 
   belongs_to :shipment, :counter_cache => true
   before_save :set_volume_cuft, :set_gross_volume_cuft, :set_gross_weight_lbs
+  after_save :update_shipment_gross_weight_lbs, :update_shipment_gross_volume_cuft
+  
    include ActionView::Helpers::NumberHelper
     # validates_presence_of :count, :entry_length, :entry_width, :entry_height, :dims_uofm, :stackability, :entry_weight, :wt_uofm
       
@@ -32,6 +37,16 @@ class Piece < ActiveRecord::Base
   
   def set_gross_weight_lbs
     self.gross_weight_lbs = self.weight_lbs * self.count
+  end
+  
+  def update_shipment_gross_weight_lbs
+      sum_piece_weight_lbs = self.shipment.pieces.sum(:gross_weight_lbs) 
+      self.shipment.update_attribute(:gross_weight_lbs, sum_piece_weight_lbs)
+  end
+
+  def update_shipment_gross_volume_cuft
+      sum_piece_volume_cuft = self.shipment.pieces.sum(:gross_volume_cuft) 
+      self.shipment.update_attribute(:gross_volume_cuft, sum_piece_volume_cuft)
   end
   
     def weight_utilization(shipweight, equiptype)
