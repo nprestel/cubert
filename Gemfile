@@ -57,3 +57,5 @@ gem 'compass-rails'
 gem "figaro"
 
 gem 'devise'
+
+gem "pundit"
