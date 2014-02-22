@@ -49,14 +49,7 @@ class Piece < ActiveRecord::Base
       self.shipment.update_attribute(:gross_volume_cuft, sum_piece_volume_cuft)
   end
   
-    def weight_utilization(shipweight, equiptype)
-      puts number_to_percentage(shipweight / Equipment.find(:first, :conditions => {:code => equiptype}).wt_limit_lbs * 100, :precision => 2)
-    end
-
-    # Finds wt_limit_lbs field from Equipment db where code equals the passed param
-    # divides the shipweight variable by the Equipment wt_limit_lbs
-    # then uses number_to_percentage to convert to % output format and multiplies by 100 for readability
-
+  
     def max_shipping_units(length, width, height, stack, equiptype)
 
       if (Equipment.find(:first, :conditions => {:code => equiptype}).height_ins / height).to_i > stack
