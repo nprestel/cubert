@@ -18,7 +18,7 @@ class Shipment < ActiveRecord::Base
   has_one :equipment
   belongs_to :user
   
-  after_update :update_shipment_weight_util
+  around_update :update_shipment_weight_util
     
   accepts_nested_attributes_for :pieces, :allow_destroy => true
   include ActionView::Helpers::NumberHelper
@@ -30,10 +30,8 @@ class Shipment < ActiveRecord::Base
   end
   
   
-  
-  
   def weight_utilization(shipweight, equiptype)
-      number_to_percentage(5000 / Equipment.where(:equip_name => equiptype).pluck(:wt_limit_lbs).first * 100, :precision => 2)
+      number_to_percentage(shipweight / (Equipment.where(:equip_name => equiptype).pluck(:wt_limit_lbs).first) * 100, :precision => 2)
   end
 
     # Finds wt_limit_lbs field from Equipment db where code equals the passed param
