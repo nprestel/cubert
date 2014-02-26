@@ -16,6 +16,9 @@
 #  piece_name        :string(255)
 #  gross_volume_cuft :float
 #  gross_weight_lbs  :float
+#  piece_cb_util     :float
+#  piece_wt_util     :float
+#  piece_max_su      :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

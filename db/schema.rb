@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219135345) do
+ActiveRecord::Schema.define(version: 20140222154411) do
 
   create_table "equipment", force: true do |t|
     t.string   "equip_name"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 20140219135345) do
     t.string   "piece_name"
     t.float    "gross_volume_cuft"
     t.float    "gross_weight_lbs"
+    t.float    "piece_cb_util"
+    t.float    "piece_wt_util"
+    t.integer  "piece_max_su"
   end
 
   create_table "shipments", force: true do |t|

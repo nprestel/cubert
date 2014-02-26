@@ -33,6 +33,7 @@
       <th>How Many?</th>
       <th>Gross Volume (cuft)</th>
       <th>Gross Weight (lbs)</th>
+      <th>Max SUs</th>
     </tr>
   </thead>
 
@@ -49,6 +50,7 @@
         <td><%= h piece.count %></td>
         <td><%= h number_with_precision(piece.gross_volume_cuft, precision: 0, delimiter: ',') %></td>
         <td><%= h number_with_precision(piece.gross_weight_lbs, precision: 0, delimiter: ',') %></td>
+        <td><%= h piece.piece_max_su %></td>
       </tr>
       <tr>
     <% end %>

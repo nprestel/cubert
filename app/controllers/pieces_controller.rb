@@ -69,6 +69,10 @@ class PiecesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def piece_params
-      params.require(:piece).permit(:id, :count, :length_ins, :width_ins, :height_ins, :stackability, :weight_lbs, :volume_cuft, :shipment_id, :piece_name)
+      params.require(:piece).permit(:id, :count, :length_ins, :width_ins, :height_ins, :stackability, :weight_lbs, :volume_cuft, :shipment_id, :piece_name, {
+      shipments_attributes: [:id, :equip_type]}, {
+      equipment_attributes: [:id, :equip_name, :length1_ins, :width1_ins, :height1_ins]}
+      )
+      
     end
 end

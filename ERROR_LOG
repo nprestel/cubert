@@ -1,0 +1,3 @@
+ERROR/IMPROVEMENT LOG
+1 - updating shipment.equiptype doesn't immediately update MAX SU, need to update Piece for update to occur
+2 - 

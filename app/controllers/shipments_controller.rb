@@ -73,7 +73,7 @@ class ShipmentsController < ApplicationController
     def shipment_params
       params.require(:shipment).permit(:pieces_count, :gross_weight_lbs, :gross_volume_cuft, :equiptype, :wt_util, :cb_util, :user_id, {
       pieces_attributes: [:id, :count, :length_ins, :width_ins, :height_ins, :stackability, :weight_lbs, :volume_cuft, :shipment_id, :piece_name, :_destroy]}, {
-      equipment_attributes: [:id, :equip_name, :wt_limit_lbs]}
+      equipment_attributes: [:id, :equip_name, :wt_limit_lbs, :length1_ins, :width1_ins, :height1_ins]}
       )
     end
 end
