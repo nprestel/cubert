@@ -24,7 +24,7 @@
 class Piece < ActiveRecord::Base
 
   belongs_to :shipment, :counter_cache => true
-  before_save :set_volume_cuft, :set_gross_volume_cuft, :set_gross_weight_lbs, :set_piece_wt_util#, :set_max_su
+  before_save :set_volume_cuft, :set_gross_volume_cuft, :set_gross_weight_lbs, :set_piece_wt_util
   #around_update :update_shipment_gross_weight_lbs, :update_shipment_gross_volume_cuft
   
    include ActionView::Helpers::NumberHelper

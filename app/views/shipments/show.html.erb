@@ -24,16 +24,17 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Length</th>
-      <th>Width</th>
-      <th>Height</th>
-      <th>SU Volume (cuft)</th>
-      <th>SU Weight (lbs)</th>
-      <th>Stackability</th>
-      <th>How Many?</th>
-      <th>Gross Volume (cuft)</th>
-      <th>Gross Weight (lbs)</th>
-      <th>Max SUs</th>
+      <th></th>
+      <th>L</th>
+      <th>W</th>
+      <th>H</th>
+      <th>Vol</th>
+      <th>Wt</th>
+      <th>Stack</th>
+      <th>Qty</th>
+      <th>Gross Vol</th>
+      <th>Gross Wt</th>
+      <th>Max</th>
     </tr>
   </thead>
 
@@ -41,6 +42,7 @@
     <% for piece in @shipment.pieces %>
       <tr>
         <td><%= h piece.piece_name %></td>
+        <td></td>
         <td><%= h piece.length_ins %></td>
         <td><%= h piece.width_ins %></td>
         <td><%= h piece.height_ins %></td>

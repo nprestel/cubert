@@ -24,10 +24,8 @@ class Shipment < ActiveRecord::Base
   include ActionView::Helpers::NumberHelper
 
   def update_pieces
-    if self.pieces.count != 0
-      self.pieces.each do |f|
-        f.update_attribute(:piece_max_su, f.set_max_su)
-      end
+    self.pieces.each do |f|
+      f.update_attribute(:piece_max_su, f.set_max_su)
     end
   end
 
