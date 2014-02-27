@@ -26,6 +26,7 @@ class Shipment < ActiveRecord::Base
   def update_pieces
     self.pieces.each do |f|
       f.update_attribute(:piece_max_su, f.set_max_su)
+      f.update_attribute(:piece_cb_util, f.cube_utilization(f.count, f.piece_max_su))
     end
   end
 

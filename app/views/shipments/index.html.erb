@@ -1,4 +1,7 @@
-<h1>Build a Shipment</h1>
+<% if !Shipment.any? %>
+  <h1>Build a Shipment</h1>
+<% end %>
+
 <% @shipments.each do |shipment| %>
       <tr>
         <p>

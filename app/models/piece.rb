@@ -25,7 +25,7 @@ class Piece < ActiveRecord::Base
 
   belongs_to :shipment, :counter_cache => true
   before_save :set_volume_cuft, :set_gross_volume_cuft, :set_gross_weight_lbs, :set_piece_wt_util
-  #around_update :update_shipment_gross_weight_lbs, :update_shipment_gross_volume_cuft
+  after_save :update_shipment_gross_weight_lbs, :update_shipment_gross_volume_cuft, :update_shipment_wt_util, :update_shipment_cb_util
   
    include ActionView::Helpers::NumberHelper
     # validates_presence_of :count, :entry_length, :entry_width, :entry_height, :dims_uofm, :stackability, :entry_weight, :wt_uofm
@@ -48,22 +48,31 @@ class Piece < ActiveRecord::Base
   
   def weight_utilization(shipweight, equiptype)
     temp_equip = (Equipment.where(:equip_name => equiptype).pluck(:wt_limit_lbs).first)
-    ship_weight = shipweight
-    return number_to_percentage(ship_weight / temp_equip * 100, precision: 2) 
+    return number_to_percentage(shipweight / temp_equip * 100, precision: 2) 
   end
   
   def set_piece_wt_util
     self.piece_wt_util = weight_utilization(self.gross_weight_lbs, self.shipment.equiptype)
   end
   
+  def set_piece_cb_util
+    self.piece_cb_util = cube_utilization(self.count, self.piece_max_su)
+  end
+  
   def update_shipment_gross_weight_lbs
-      sum_piece_weight_lbs = self.shipment.pieces.sum(:gross_weight_lbs) 
-      self.shipment.update_attribute(:gross_weight_lbs, sum_piece_weight_lbs)
+    shipment.update_column(:gross_weight_lbs, self.shipment.pieces.sum(:gross_weight_lbs))
   end
 
   def update_shipment_gross_volume_cuft
-      sum_piece_volume_cuft = self.shipment.pieces.sum(:gross_volume_cuft) 
-      self.shipment.update_attribute(:gross_volume_cuft, sum_piece_volume_cuft)
+    shipment.update_column(:gross_volume_cuft, self.shipment.pieces.sum(:gross_volume_cuft))
+  end
+  
+  def update_shipment_wt_util
+    shipment.update_column(:wt_util, self.shipment.pieces.sum(:piece_wt_util))
+  end
+  
+  def update_shipment_cb_util
+    shipment.update_column(:cb_util, self.shipment.pieces.sum(:piece_cb_util))
   end
 
 # Finds wt_limit_lbs field from Equipment db where code equals the passed param divides the shipweight variable by the Equipment wt_limit_lbs then uses number_to_percentage to convert to % output format and multiplies by 100 for readability
@@ -87,13 +96,13 @@ class Piece < ActiveRecord::Base
     # if the allowable equipment type stackability is greater than the stack param, use the stack param for height. Otherwise use the allowable stackability
     # calculate the max cube units allowed by equipment type 2 different ways -> 1) length, width divided by one another, then 2) pin-wheeling the unit. Return max of these 2 numbers.
 
-    def cube(count, max_shipping_units)
+    def cube_utilization(count, max_shipping_units)
       if(max_shipping_units > 0)
         @temp = (count.to_f / max_shipping_units.to_f)
       else
         @temp = 0
       end
-    puts number_to_percentage(@temp * 100, :precision => 2)
+      return number_to_percentage(@temp * 100, :precision => 2)
     end
 
     # first validates the maximum allowable shipping units is positive number. If so, divides number of units (as float) by the maximum allowable amount (as float). If not, returns 0.
