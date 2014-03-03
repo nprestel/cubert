@@ -28,7 +28,7 @@
 class Equipment < ActiveRecord::Base
   belongs_to :shipments
   
-  MODE_TYPES = ["", "Ground", "Air", "Ocean"]
+  MODE_TYPES = ["Ground", "Air", "Ocean"]
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :equip_image,
     :styles => { :medium => ["500x500", :jpg], :thumb => ["100x100", :jpg] },

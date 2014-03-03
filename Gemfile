@@ -19,7 +19,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'simple_form', '~> 3.0.0.rc'
+gem 'simple_form'
 gem 'client_side_validations', github: "bcardarella/client_side_validations", :branch => "4-0-beta"
 gem 'client_side_validations-simple_form', git: 'git://github.com/saveritemedical/client_side_validations-simple_form.git'
 gem 'jquery-rails'
@@ -45,7 +45,9 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'bootstrap-sass', '~> 3.0.3.0'
+# gem 'bootstrap-sass', '~> 3.0.3.0'
+gem 'bootstrap-sass', '~> 2.3'
+
 gem 'rmagick', '2.13.2'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'

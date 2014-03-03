@@ -1,80 +1,37 @@
-<%= form_for(@equipment, :html => {:multipart => true}) do |f| %>
-  <% if @equipment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
-
-      <ul>
-      <% @equipment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= simple_form_for(@equipment, :html => {:multipart => true, :class => 'form-horizontal'}) do |f| %>
+  <%= f.input :equip_name, :wrapper => :prepend, :label => false do %>
+    <%= content_tag :span, "Equipment Name", :class => "add-on" %>
+    <%= f.input_field :equip_name %>
   <% end %>
-
-  <div class="field">
-    <%= f.label :equip_name %><br>
-    <%= f.text_field :equip_name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, rows: 6 %>
-  </div>
-  <div class="field">
-    <%= f.label :mode %><br>
-    <%= f.select(:mode, Equipment::MODE_TYPES) %>
-  </div>
-  <div class="field">
-    <%= f.label :length1_ins %><br>
-    <%= f.text_field :length1_ins %>
-  </div>
-  <div class="field">
-    <%= f.label :width1_ins %><br>
-    <%= f.text_field :width1_ins%>
-  </div>
-  <div class="field">
-    <%= f.label :height1_ins %><br>
-    <%= f.text_field :height1_ins%>
-  </div>
+  <%= f.input :description %>
+  <%= f.input :mode, collection:Equipment::MODE_TYPES %>
+  <%= f.input :length1_ins %>
+  <%= f.input :width1_ins %>
+  <%= f.input :height1_ins %>
   <div class="collapsable-section">
     <div style="color:blue" class="label">Multiple Dimensions</div>
     <div class="field" id='container2'>
-      <%= f.label :length2_ins %><br>
-      <%= f.text_field :length2_ins%>
+    <%= f.input :length2_ins %>
     </div>
     <div class="field" id='container3'>
-      <%= f.label :width2_ins %><br>
-      <%= f.text_field :width2_ins%>
+    <%= f.input :width2_ins %>
     </div>
     <div class="field" id='container4'>
-      <%= f.label :height2_ins %><br>
-      <%= f.text_field :height2_ins%>
+    <%= f.input :height2_ins %>
     </div>
     <div class="field" id='container5'>
-      <%= f.label :length3_ins %><br>
-      <%= f.text_field :length3_ins%>
+    <%= f.input :length3_ins %>
     </div>
     <div class="field" id='container6'>
-      <%= f.label :width3_ins %><br>
-      <%= f.text_field :width3_ins%>
+    <%= f.input :width3_ins %>
     </div>
     <div class="field" id='container7'>
-      <%= f.label :height3_ins %><br>
-      <%= f.text_field :height3_ins%>
+    <%= f.input :height3_ins %>
     </div>
   </div>
-  <div class="field">
-    <%= f.label :wt_limit_lbs %><br>
-    <%= f.text_field :wt_limit_lbs%>
-  </div>
-  <div class="field">
-    <%= f.label :cb_limit_cuft %><br>
-    <%= f.text_field :cb_limit_cuft%>
-  </div>
-  <div class="field">
-    <%= f.label :equip_image %><br>
-    <%= f.file_field :equip_image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.input :wt_limit_lbs %>
+  <%= f.input :cb_limit_cuft %>
+  <%= f.input :equip_image, :label => "Image" %>
+  <%= f.button :submit %>
+
 <% end %>
