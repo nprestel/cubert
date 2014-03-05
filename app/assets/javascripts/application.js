@@ -19,19 +19,25 @@
 //= require bootstrap
 //= require_tree .
 
-jQuery(document).ready(function($){
-    $("#container7").hide();
-    $("#container2").hide();
-    $("#container3").hide();
-    $("#container4").hide();
-    $("#container5").hide();
-    $("#container6").hide();
-    var $collapsables = $('.collapsable-section');
-    $collapsables.each(function(i){
-        var $label = $(this).find('.label').filter(':first');
-        var $fields = $(this).find('.field').filter('.field');
-        $label.click(function(e){
-            $fields.slideToggle(200);
-        });
-    });
-});
+window.onload = function () {
+  var L1 = document.getElementById('L1'),
+      W1 = document.getElementById('W1'),
+      H1 = document.getElementById('H1'),
+      L2 = document.getElementById('L2'),
+      W2 = document.getElementById('W2'),
+      H2 = document.getElementById('H2'),
+      L3 = document.getElementById('L3'),
+      W3 = document.getElementById('W3'),
+      H3 = document.getElementById('H3'),
+      Vol = document.getElementById('Vol');
+
+  H1.onkeyup = function () { // or first.onchange
+    Vol.value = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+  };
+  H2.onkeyup = function () { // or first.onchange
+    Vol.value = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+  };
+  H3.onkeyup = function () { // or first.onchange
+    Vol.value = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+  };
+};

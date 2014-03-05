@@ -16,15 +16,16 @@
 
 */
 
+
 body {
   padding-top: 30px;
 }
 
-.alert p.error_notification {
+.alert error_notification {
   margin-bottom: 0;
 }
 
-div.well {
+.well {
   padding: 5px 10px;
 }
 
@@ -68,3 +69,4 @@ article .content {
 .form-vertical .boolean .controls {
   display: inline-block;
 }
+
