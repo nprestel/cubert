@@ -61,3 +61,5 @@ gem "figaro"
 gem 'devise'
 
 gem "pundit"
+
+gem 'rails_bootstrap_navbar'
