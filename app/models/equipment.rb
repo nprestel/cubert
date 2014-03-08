@@ -27,7 +27,7 @@
 
 class Equipment < ActiveRecord::Base
   belongs_to :shipments
-  
+
   MODE_TYPES = ["Ground", "Air", "Ocean"]
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :equip_image,
@@ -39,11 +39,13 @@ class Equipment < ActiveRecord::Base
       :access_key_id => ENV["CUBERT_AWSKEYID"],
       :secret_access_key => ENV["CUBERT_AWSSECRETKEY"]
     }
-  validates :equip_name, :description, :mode, presence: true 
+  validates :equip_name, :description, :mode, presence: true
   validates :equip_name, uniqueness: { case_sensitive: false }
   validates :length1_ins, numericality: {greater_than_or_equal_to:0.01}
   validates :width1_ins, numericality: {greater_than_or_equal_to:0.01}
   validates :height1_ins, numericality: {greater_than_or_equal_to:0.01}
+
+  before_validation :uppercase_equip_name
 
   validates_numericality_of :wt_limit_lbs
   validates_numericality_of :cb_limit_cuft
@@ -51,5 +53,9 @@ class Equipment < ActiveRecord::Base
   #def less_than_calculated_cube
    #errors.add(:cb_limit_cuft, "Larger than product of provided dims") unless cb_limit_cuft < ((length1_ins*width1_ins*height1_ins)+(length2_ins*width2_ins*height2_ins)+(length3_ins*width3_ins*height3_ins))
   #end
-  
+
+  def uppercase_equip_name
+    self.equip_name.upcase!
+  end
+
 end
