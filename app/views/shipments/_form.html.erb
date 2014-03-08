@@ -1,27 +1,12 @@
-<%= form_for @shipment, :html => { :class => 'form-horizontal' } do |f| %>
-  <% if @shipment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
-
-      <ul>
-      <% @shipment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="control-group">
-    <%= f.label :equiptype, class: "control-label" %><br>
-    <%= f.collection_select  :equiptype, Equipment.all, :equip_name, :description %>
-  </div>
-<br />
-<%= f.fields_for :pieces, :html => { :class => 'form-horizontal' } do |builder| %>
+<%= simple_form_for(@shipment, :html => { :class => 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :equiptype, collection: Equipment.all, label_method: :description, value_method: :equip_name, label: "Equipment", include_blank: false %>
+<%= f.simple_fields_for :pieces, :html => {:class => 'form-horizontal'} do |builder| %>
   <%= render 'piece_fields', f: builder %>
 <% end %>
 <%= link_to_add_fields "Add Piece", f, :pieces %>
 <br />
 <br />
-<%= f.submit %>
+  <%= f.button :submit, :class => 'btn-primary' %>
 
 <% end %>

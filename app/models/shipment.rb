@@ -19,7 +19,7 @@ class Shipment < ActiveRecord::Base
   has_one :equipment
   belongs_to :user
   after_save :update_pieces
-    
+
   accepts_nested_attributes_for :pieces, :allow_destroy => true
   include ActionView::Helpers::NumberHelper
 
@@ -27,6 +27,7 @@ class Shipment < ActiveRecord::Base
     self.pieces.each do |f|
       f.update_attribute(:piece_max_su, f.set_max_su)
       f.update_attribute(:piece_cb_util, f.cube_utilization(f.count, f.piece_max_su))
+      f.update_attribute(:piece_lqcb_util, f.liquid_cube(f.gross_volume_cuft, f.shipment.equiptype))
     end
   end
 
