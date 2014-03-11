@@ -27,6 +27,7 @@ class Piece < ActiveRecord::Base
   belongs_to :shipment, :counter_cache => true
   before_save :set_volume_cuft, :set_gross_volume_cuft, :set_gross_weight_lbs, :set_piece_wt_util
   after_save :update_shipment_gross_weight_lbs, :update_shipment_gross_volume_cuft, :update_shipment_wt_util, :update_shipment_cb_util, :update_shipment_lqcb_util
+  after_destroy :update_shipment_gross_weight_lbs, :update_shipment_gross_volume_cuft, :update_shipment_wt_util, :update_shipment_cb_util, :update_shipment_lqcb_util
 
    include ActionView::Helpers::NumberHelper
     # validates_presence_of :count, :entry_length, :entry_width, :entry_height, :dims_uofm, :stackability, :entry_weight, :wt_uofm
