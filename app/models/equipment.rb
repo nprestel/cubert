@@ -33,6 +33,7 @@ class Equipment < ActiveRecord::Base
   has_attached_file :equip_image,
     :styles => { :medium => ["500x500", :jpg], :thumb => ["100x100", :jpg] },
     :storage => :s3,
+    :default_url => '/default/missing_:style.jpg',
     :bucket => 'lajek_images',
     :s3_host_name => 's3.amazonaws.com',
     :s3_credentials => {
@@ -46,6 +47,8 @@ class Equipment < ActiveRecord::Base
   validates :height1_ins, numericality: {greater_than_or_equal_to:0.01}
 
   before_validation :uppercase_equip_name
+  after_initialize :init
+
 
   validates_numericality_of :wt_limit_lbs
   validates_numericality_of :cb_limit_cuft
@@ -56,6 +59,16 @@ class Equipment < ActiveRecord::Base
 
   def uppercase_equip_name
     self.equip_name.upcase!
+  end
+
+  def init
+    self.length2_ins  ||= 0.0           #will set the default value only if it's nil
+    self.width2_ins  ||= 0.0           #will set the default value only if it's nil
+    self.height2_ins  ||= 0.0           #will set the default value only if it's nil
+    self.length3_ins  ||= 0.0           #will set the default value only if it's nil
+    self.width3_ins  ||= 0.0           #will set the default value only if it's nil
+    self.height3_ins  ||= 0.0           #will set the default value only if it's nil
+
   end
 
 end
