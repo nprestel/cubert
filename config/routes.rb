@@ -1,20 +1,22 @@
 Cubert::Application.routes.draw do
+  get "welcome/index"
   # devise_for :users
-  devise_for :users do 
-    get '/users/sign_out' => 'devise/sessions#destroy' 
+  devise_for :users do
+    get '/users/sign_out' => 'devise/sessions#destroy'
     end
-  
+
   devise_scope :user do
   get "sign_in", to: "devise/sessions#new"
   end
-  
+
   resources :pieces
 
   resources :shipments
 
   resources :equipment
-  
-  root :to => "shipments#index"
+
+  # root :to => "shipments#index"
+  root :controller => 'static', :action => '/'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

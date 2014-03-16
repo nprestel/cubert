@@ -19,7 +19,7 @@
 #  piece_cb_util     :float
 #  piece_wt_util     :float
 #  piece_max_su      :integer
-#  piece_lqcube_util :float
+#  piece_lqcb_util   :float
 #
 
 class Piece < ActiveRecord::Base

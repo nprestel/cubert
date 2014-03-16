@@ -26,10 +26,12 @@ class ShipmentsController < ApplicationController
   # POST /shipments.json
   def create
     @shipment = Shipment.new(shipment_params)
+    @shipment.user = current_user
 
     respond_to do |format|
       if @shipment.save
-        format.html { redirect_to @shipment, notice: 'Shipment was successfully created.' }
+        format.html { redirect_to({:action => "index"}, {:notice => "Shipment was successfully created"})}
+        # format.html { redirect_to action: 'index', notice: 'Shipment was successfully created.' }
         # format.html { redirect_to action: "index", notice: 'Shipment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @shipment }
       else
@@ -73,7 +75,8 @@ class ShipmentsController < ApplicationController
     def shipment_params
       params.require(:shipment).permit(:pieces_count, :gross_weight_lbs, :gross_volume_cuft, :equiptype, :wt_util, :cb_util, :user_id, {
       pieces_attributes: [:id, :count, :length_ins, :width_ins, :height_ins, :stackability, :weight_lbs, :volume_cuft, :shipment_id, :piece_name, :_destroy]}, {
-      equipment_attributes: [:id, :equip_name, :wt_limit_lbs, :length1_ins, :width1_ins, :height1_ins]}
+      equipment_attributes: [:id, :equip_name, :wt_limit_lbs, :length1_ins, :width1_ins, :height1_ins]}, {
+      users_attributes: [:id]}
       )
     end
 end
