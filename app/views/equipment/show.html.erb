@@ -14,12 +14,12 @@
 
 <p>
   <strong>Wt limit lbs:</strong>
-  <%= @equipment.wt_limit_lbs %>
+  <%= number_with_precision(@equipment.wt_limit_lbs, :precision => 0, :delimiter => ',') %>
 </p>
 
 <p>
   <strong>Cb limit cuft:</strong>
-  <%= @equipment.cb_limit_cuft %>
+  <%= number_with_precision(@equipment.cb_limit_cuft, :precision => 0, :delimiter => ',') %>
 </p>
 
 <p>
@@ -37,35 +37,47 @@
   <%= @equipment.height1_ins %>
 </p>
 
+<% if @equipment.length2_ins != 0 %>
 <p>
   <strong>Length2 ins:</strong>
   <%= @equipment.length2_ins %>
 </p>
+<% end %>
 
+<% if @equipment.width2_ins != 0 %>
 <p>
   <strong>Width2 ins:</strong>
   <%= @equipment.width2_ins %>
 </p>
+<% end %>
 
+<% if @equipment.height2_ins != 0 %>
 <p>
   <strong>Height2 ins:</strong>
   <%= @equipment.height2_ins %>
 </p>
+<% end %>
 
+<% if @equipment.length3_ins != 0 %>
 <p>
   <strong>Length3 ins:</strong>
   <%= @equipment.length3_ins %>
 </p>
+<% end %>
 
+<% if @equipment.width3_ins != 0 %>
 <p>
   <strong>Width3 ins:</strong>
   <%= @equipment.width3_ins %>
 </p>
+<% end %>
 
+<% if @equipment.height3_ins != 0 %>
 <p>
   <strong>Height3 ins:</strong>
   <%= @equipment.height3_ins %>
 </p>
+<% end %>
 
 <%= render 'backbtn' %> |
 <%= render 'editbtn' %>

@@ -70,5 +70,6 @@ class Equipment < ActiveRecord::Base
     self.height3_ins  ||= 0.0           #will set the default value only if it's nil
 
   end
+  
 
 end

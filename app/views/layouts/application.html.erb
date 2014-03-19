@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name %>'>
+    <%= render 'layouts/flash_messages' %>
     <%= render 'layouts/header' %>
     <div class="container">
       <%= yield %>

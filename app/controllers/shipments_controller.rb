@@ -46,7 +46,7 @@ class ShipmentsController < ApplicationController
   def update
     respond_to do |format|
       if @shipment.update(shipment_params)
-        format.html { redirect_to @shipment, notice: 'Shipment was successfully updated.' }
+        format.html { redirect_to({:action => "index"}, {:notice => "Shipment was successfully updated"})}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
