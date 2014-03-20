@@ -48,8 +48,7 @@ class Equipment < ActiveRecord::Base
 
   before_validation :uppercase_equip_name
   after_initialize :init
-
-
+  
   validates_numericality_of :wt_limit_lbs
   validates_numericality_of :cb_limit_cuft
   #validate :less_than_calculated_cube
@@ -68,7 +67,6 @@ class Equipment < ActiveRecord::Base
     self.length3_ins  ||= 0.0           #will set the default value only if it's nil
     self.width3_ins  ||= 0.0           #will set the default value only if it's nil
     self.height3_ins  ||= 0.0           #will set the default value only if it's nil
-
   end
   
 

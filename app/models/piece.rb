@@ -94,15 +94,39 @@ class Piece < ActiveRecord::Base
     def max_shipping_units(length, width, height, stack, equiptype)
 
       if ((Equipment.where(:equip_name => equiptype).pluck(:height1_ins).first) / height).to_i > stack
-        @cube1 = ((Equipment.where(:equip_name => equiptype).pluck(:length1_ins).first) / length).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width1_ins).first) / width).to_i * stack
-        @cube2 = ((Equipment.where(:equip_name => equiptype).pluck(:length1_ins).first) / width).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width1_ins).first) / length).to_i * stack
-      return [@cube1, @cube2].max
+        @cube1_1 = ((Equipment.where(:equip_name => equiptype).pluck(:length1_ins).first) / length).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width1_ins).first) / width).to_i * stack
+        @cube1_2 = ((Equipment.where(:equip_name => equiptype).pluck(:length1_ins).first) / width).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width1_ins).first) / length).to_i * stack
+      section1 = [@cube1_1, @cube1_2].max
 
       else
-      @cube1 = ((Equipment.where(:equip_name => equiptype).pluck(:length1_ins).first) / length).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width1_ins).first) / width).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:height1_ins).first) / height).to_i
-      @cube2 = ((Equipment.where(:equip_name => equiptype).pluck(:length1_ins).first) / width).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width1_ins).first) / length).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:height1_ins).first) / height).to_i
-      return [@cube1, @cube2].max
+      @cube1_1 = ((Equipment.where(:equip_name => equiptype).pluck(:length1_ins).first) / length).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width1_ins).first) / width).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:height1_ins).first) / height).to_i
+      @cube1_2 = ((Equipment.where(:equip_name => equiptype).pluck(:length1_ins).first) / width).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width1_ins).first) / length).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:height1_ins).first) / height).to_i
+      section1 = [@cube1_1, @cube1_2].max
       end
+      
+      if ((Equipment.where(:equip_name => equiptype).pluck(:height2_ins).first) / height).to_i > stack
+        @cube2_1 = ((Equipment.where(:equip_name => equiptype).pluck(:length2_ins).first) / length).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width2_ins).first) / width).to_i * stack
+        @cube2_2 = ((Equipment.where(:equip_name => equiptype).pluck(:length2_ins).first) / width).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width2_ins).first) / length).to_i * stack
+      section2 = [@cube2_1, @cube2_2].max
+
+      else
+      @cube2_1 = ((Equipment.where(:equip_name => equiptype).pluck(:length2_ins).first) / length).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width2_ins).first) / width).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:height2_ins).first) / height).to_i
+      @cube2_2 = ((Equipment.where(:equip_name => equiptype).pluck(:length2_ins).first) / width).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width2_ins).first) / length).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:height2_ins).first) / height).to_i
+      section2 = [@cube2_1, @cube2_2].max
+      end
+      
+      if ((Equipment.where(:equip_name => equiptype).pluck(:height3_ins).first) / height).to_i > stack
+        @cube3_1 = ((Equipment.where(:equip_name => equiptype).pluck(:length3_ins).first) / length).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width3_ins).first) / width).to_i * stack
+        @cube3_2 = ((Equipment.where(:equip_name => equiptype).pluck(:length3_ins).first) / width).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width3_ins).first) / length).to_i * stack
+      section3 = [@cube3_1, @cube3_2].max
+
+      else
+      @cube3_1 = ((Equipment.where(:equip_name => equiptype).pluck(:length3_ins).first) / length).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width3_ins).first) / width).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:height3_ins).first) / height).to_i
+      @cube3_2 = ((Equipment.where(:equip_name => equiptype).pluck(:length3_ins).first) / width).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:width3_ins).first) / length).to_i * ((Equipment.where(:equip_name => equiptype).pluck(:height3_ins).first) / height).to_i
+      section3 = [@cube3_1, @cube3_2].max
+      end
+      
+      return section1 + section2 + section3
     end
 
     # determine if the unit stackability allowable by the equipment type is greater than the stack param passed
