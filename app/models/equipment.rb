@@ -26,7 +26,7 @@
 #
 
 class Equipment < ActiveRecord::Base
-  belongs_to :shipments
+  belongs_to :shipments, inverse_of: :equipment, :autosave => true
 
   MODE_TYPES = ["Ground", "Air", "Ocean"]
   # This method associates the attribute ":avatar" with a file attachment
@@ -48,7 +48,7 @@ class Equipment < ActiveRecord::Base
 
   before_validation :uppercase_equip_name
   after_initialize :init
-  
+
   validates_numericality_of :wt_limit_lbs
   validates_numericality_of :cb_limit_cuft
   #validate :less_than_calculated_cube
@@ -68,6 +68,6 @@ class Equipment < ActiveRecord::Base
     self.width3_ins  ||= 0.0           #will set the default value only if it's nil
     self.height3_ins  ||= 0.0           #will set the default value only if it's nil
   end
-  
+
 
 end

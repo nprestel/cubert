@@ -16,8 +16,8 @@
 #
 
 class Shipment < ActiveRecord::Base
-  has_many :pieces, :dependent => :destroy, autosave: true
-  has_one :equipment
+  has_many :pieces, inverse_of: :shipment, :dependent => :destroy
+  has_one :equipment, inverse_of: :shipment
   belongs_to :user, :counter_cache => true
   validate :shipment_quota, :on => :create
   after_save :update_pieces

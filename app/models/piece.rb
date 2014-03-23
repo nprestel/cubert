@@ -24,7 +24,7 @@
 
 class Piece < ActiveRecord::Base
 
-  belongs_to :shipment, :counter_cache => true
+  belongs_to :shipment, inverse_of: :pieces, :counter_cache => true
 
   validates :length_ins, :width_ins, :height_ins, :count, :weight_lbs, :stackability, presence: true
 
