@@ -55,6 +55,7 @@ class Equipment < ActiveRecord::Base
   #def less_than_calculated_cube
    #errors.add(:cb_limit_cuft, "Larger than product of provided dims") unless cb_limit_cuft < ((length1_ins*width1_ins*height1_ins)+(length2_ins*width2_ins*height2_ins)+(length3_ins*width3_ins*height3_ins))
   #end
+  #after_save :update_shipments
 
   def uppercase_equip_name
     self.equip_name.upcase!
@@ -68,6 +69,11 @@ class Equipment < ActiveRecord::Base
     self.width3_ins  ||= 0.0           #will set the default value only if it's nil
     self.height3_ins  ||= 0.0           #will set the default value only if it's nil
   end
-
+  
+  def update_shipments
+    self.shipments.each do |f|
+      f.update_attribute(:wt_util, 99999)
+    end
+  end
 
 end

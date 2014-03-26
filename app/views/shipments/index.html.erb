@@ -20,7 +20,7 @@
 
 <p>
   <strong>Equiptype:</strong>
-  <%= shipment.equiptype %>
+  <%= Equipment.find_by_id(shipment.equipment_id).equip_name %>
 </p>
 <br>
 <h3>

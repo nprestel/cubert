@@ -1,6 +1,6 @@
 <%= simple_form_for(@shipment, :html => { :class => 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :equiptype, collection: Equipment.all, label_method: :description, value_method: :equip_name, label: "Equipment", include_blank: false %>
+  <%= f.input :equipment_id, collection: Equipment.all, label_method: :description, value_method: :id, label: "Equipment", include_blank: false %>
 <%= f.simple_fields_for :pieces, :html => {:class => 'form-horizontal'} do |builder| %>
   <%= render 'piece_fields', f: builder %>
 <% end %>

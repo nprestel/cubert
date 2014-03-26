@@ -6,13 +6,13 @@
 #  pieces_count      :integer
 #  gross_weight_lbs  :float
 #  gross_volume_cuft :float
-#  equiptype         :string(255)
 #  wt_util           :float
 #  cb_util           :float
 #  created_at        :datetime
 #  updated_at        :datetime
 #  user_id           :integer
 #  lqcb_util         :float
+#  equipment_id      :integer
 #
 
 class Shipment < ActiveRecord::Base
@@ -29,7 +29,7 @@ class Shipment < ActiveRecord::Base
     self.pieces.each do |f|
       f.update_attribute(:piece_max_su, f.set_max_su)
       f.update_attribute(:piece_cb_util, f.cube_utilization(f.count, f.piece_max_su))
-      f.update_attribute(:piece_lqcb_util, f.liquid_cube(f.gross_volume_cuft, f.shipment.equiptype))
+      f.update_attribute(:piece_lqcb_util, f.liquid_cube(f.gross_volume_cuft, Equipment.find_by_id(f.shipment.equipment_id).equip_name))
     end
   end
 

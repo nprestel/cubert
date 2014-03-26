@@ -23,7 +23,7 @@
 #
 
 class Piece < ActiveRecord::Base
-
+  has_one :equipment, :through => :shipment
   belongs_to :shipment, inverse_of: :pieces, :counter_cache => true
 
   validates :length_ins, :width_ins, :height_ins, :count, :weight_lbs, :stackability, presence: true
@@ -48,7 +48,7 @@ class Piece < ActiveRecord::Base
   end
 
   def set_max_su
-    self.piece_max_su = max_shipping_units(self.length_ins, self.width_ins, self.height_ins, self.stackability, self.shipment.equiptype)
+    self.piece_max_su = max_shipping_units(self.length_ins, self.width_ins, self.height_ins, self.stackability, Equipment.find_by_id(self.shipment.equipment_id).equip_name)
   end
 
   def weight_utilization(shipweight, equiptype)
@@ -57,7 +57,7 @@ class Piece < ActiveRecord::Base
   end
 
   def set_piece_wt_util
-    self.piece_wt_util = weight_utilization(self.gross_weight_lbs, self.shipment.equiptype)
+    self.piece_wt_util = weight_utilization(self.gross_weight_lbs, Equipment.find_by_id(self.shipment.equipment_id).equip_name)
   end
 
   def set_piece_cb_util
