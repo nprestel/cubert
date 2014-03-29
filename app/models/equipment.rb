@@ -26,7 +26,8 @@
 #
 
 class Equipment < ActiveRecord::Base
-  belongs_to :shipments, inverse_of: :equipment, :autosave => true
+  has_many :shipments, :autosave => true
+  has_many :pieces, :through => :shipments
 
   MODE_TYPES = ["Ground", "Air", "Ocean"]
   # This method associates the attribute ":avatar" with a file attachment
@@ -55,7 +56,7 @@ class Equipment < ActiveRecord::Base
   #def less_than_calculated_cube
    #errors.add(:cb_limit_cuft, "Larger than product of provided dims") unless cb_limit_cuft < ((length1_ins*width1_ins*height1_ins)+(length2_ins*width2_ins*height2_ins)+(length3_ins*width3_ins*height3_ins))
   #end
-  #after_save :update_shipments
+  after_save :update_shipments
 
   def uppercase_equip_name
     self.equip_name.upcase!
@@ -72,7 +73,7 @@ class Equipment < ActiveRecord::Base
   
   def update_shipments
     self.shipments.each do |f|
-      f.update_attribute(:wt_util, 99999)
+      f.update_attribute(:wt_util, pieces.sum(:piece_wt_util))
     end
   end
 

@@ -23,8 +23,8 @@
 #
 
 class Piece < ActiveRecord::Base
-  has_one :equipment, :through => :shipment
-  belongs_to :shipment, inverse_of: :pieces, :counter_cache => true
+  belongs_to :shipment, :counter_cache => true
+  delegate :equipment, :to => :shipment, :allow_nil => true
 
   validates :length_ins, :width_ins, :height_ins, :count, :weight_lbs, :stackability, presence: true
 
