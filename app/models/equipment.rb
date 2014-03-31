@@ -26,7 +26,7 @@
 #
 
 class Equipment < ActiveRecord::Base
-  has_many :shipments, :autosave => true
+  has_many :shipments, :autosave => true, :dependent => :destroy
   has_many :pieces, :through => :shipments
 
   MODE_TYPES = ["Ground", "Air", "Ocean"]
