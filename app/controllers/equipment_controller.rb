@@ -57,6 +57,7 @@ class EquipmentController < ApplicationController
     respond_to do |format|
       format.html { redirect_to equipment_index_url }
       format.json { head :no_content }
+      flash[:error] = @equipment.errors.full_messages.join(' ')
     end
   end
 

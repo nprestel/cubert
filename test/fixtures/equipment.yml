@@ -23,6 +23,7 @@
 #  equip_image_content_type :string(255)
 #  equip_image_file_size    :integer
 #  equip_image_updated_at   :datetime
+#  do_not_delete            :boolean          default(FALSE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

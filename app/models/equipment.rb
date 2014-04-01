@@ -23,6 +23,7 @@
 #  equip_image_content_type :string(255)
 #  equip_image_file_size    :integer
 #  equip_image_updated_at   :datetime
+#  do_not_delete            :boolean          default(FALSE)
 #
 
 class Equipment < ActiveRecord::Base
@@ -48,6 +49,7 @@ class Equipment < ActiveRecord::Base
   validates :height1_ins, numericality: {greater_than_or_equal_to:0.01}
 
   before_validation :uppercase_equip_name
+  before_destroy :equipment_do_not_delete?
   after_initialize :init
 
   validates_numericality_of :wt_limit_lbs
@@ -75,6 +77,11 @@ class Equipment < ActiveRecord::Base
     self.shipments.each do |f|
       f.update_attribute(:wt_util, pieces.sum(:piece_wt_util))
     end
+  end
+  
+  def equipment_do_not_delete?
+    errors.add(:base, "This object is protected") unless self.do_not_delete == false
+    errors.blank? #return false, to not destroy the element, otherwise, it will delete.
   end
 
 end
