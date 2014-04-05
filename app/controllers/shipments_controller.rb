@@ -31,9 +31,8 @@ class ShipmentsController < ApplicationController
     respond_to do |format|
       if @shipment.save
         format.html { redirect_to({:action => "index"}, {:notice => "Shipment was successfully created"})}
-        # format.html { redirect_to action: 'index', notice: 'Shipment was successfully created.' }
-        # format.html { redirect_to action: "index", notice: 'Shipment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @shipment }
+        flash[:error] = @shipment.errors.full_messages.join(' ')
       else
         format.html { render action: 'new' }
         format.json { render json: @shipment.errors, status: :unprocessable_entity }

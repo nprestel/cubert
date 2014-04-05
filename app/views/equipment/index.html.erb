@@ -17,7 +17,7 @@
       <%= link_to 'Show', equipment %><br/>
       <%= link_to 'Edit', edit_equipment_path(equipment), data: { no_turbolink: true } %><br/>
       <%= link_to 'Delete', equipment, method: :delete,
-                  data: { confirm: 'Are you sure?' } %>
+                  data: { confirm: 'Are you sure? All associated shipments will be deleted!' } %>
     </td>
   </tr>
 <% end %>

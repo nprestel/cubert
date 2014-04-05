@@ -50,6 +50,8 @@ class Equipment < ActiveRecord::Base
 
   before_validation :uppercase_equip_name
   before_destroy :equipment_do_not_delete?
+  before_save :equipment_do_not_delete?
+
   after_initialize :init
 
   validates_numericality_of :wt_limit_lbs

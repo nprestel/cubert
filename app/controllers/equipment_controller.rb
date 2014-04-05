@@ -29,6 +29,7 @@ class EquipmentController < ApplicationController
       if @equipment.save
         format.html { redirect_to @equipment, notice: 'Equipment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @equipment }
+        flash[:error] = @equipment.errors.full_messages.join(' ')
       else
         format.html { render action: 'new' }
         format.json { render json: @equipment.errors, status: :unprocessable_entity }
@@ -43,6 +44,7 @@ class EquipmentController < ApplicationController
       if @equipment.update(equipment_params)
         format.html { redirect_to @equipment, notice: 'Equipment was successfully updated.' }
         format.json { head :no_content }
+        flash[:error] = @equipment.errors.full_messages.join(' ')
       else
         format.html { render action: 'edit' }
         format.json { render json: @equipment.errors, status: :unprocessable_entity }
