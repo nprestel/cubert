@@ -63,3 +63,5 @@ gem 'devise'
 gem "pundit"
 
 gem 'rails_bootstrap_navbar'
+
+gem 'highcharts-rails'

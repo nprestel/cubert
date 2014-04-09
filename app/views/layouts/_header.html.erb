@@ -9,14 +9,14 @@
     <%= link_to "Cubert", root_path, :class => "brand" %>
       <div class="nav-collapse collapse">
         <ul class="nav foo" id="menu">
-          <li class="active">
-            <a href="/">Home</a>
+          <li
+            class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %>
           </li>
-          <li>
-            <%= link_to "Shipment", shipments_path %>
+          <li
+            class="<%= 'active' if current_page?(shipments_path) %>"><%= link_to "Shipment", shipments_path %>
           </li>
-          <li>
-            <%= link_to "Equipment", equipment_index_path %>
+          <li
+            class="<%= 'active' if current_page?(equipment_index_path) %>"><%= link_to "Equipment", equipment_index_path %>
           </li>
           <li class="divider-vertical"></li>
 
