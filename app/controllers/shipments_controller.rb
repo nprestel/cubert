@@ -1,7 +1,14 @@
 class ShipmentsController < ApplicationController
   before_action :set_shipment, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :check_quota, :authenticate_user!, :except => [:show, :index]
 
+  
+  def check_quota
+    if current_user.shipments.count >= 1
+      @quota_warning = "You've reached maximum posts you can import"
+    end
+  end
+  
   # GET /shipments
   # GET /shipments.json
   def index

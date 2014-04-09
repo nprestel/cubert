@@ -34,9 +34,10 @@ class Shipment < ActiveRecord::Base
   end
 
   def shipment_quota
-   if user.shipments_count > 1
-     errors.add(:base, "Only one Shipment per User")
-   end
+    if self.user.shipments.count >= 1
+      self.errors.add(:base, "Only one Shipment per User")
+      return false
+    end
   end
 
 end

@@ -1,5 +1,8 @@
 
-  <h1>Shipment Index Dude</h1>
+  <h1>Shipment Index</h1>
+<% if @quota_warning.present? %>
+  <span><%= @quota_warning %></span>
+<% end %>
 
   <div class="not_attending_div">
     <%= if !current_user.shipments.present?
