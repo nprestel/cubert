@@ -55,6 +55,7 @@ GEM
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     builder (3.1.4)
+    cancancan (1.7.1)
     chunky_png (1.2.9)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -181,6 +182,7 @@ DEPENDENCIES
   annotate (>= 2.6.0)
   aws-sdk
   bootstrap-sass (~> 2.3)
+  cancancan (~> 1.7)
   client_side_validations!
   client_side_validations-simple_form!
   coffee-rails (~> 4.0.0)

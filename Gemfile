@@ -65,3 +65,5 @@ gem "pundit"
 gem 'rails_bootstrap_navbar'
 
 gem 'highcharts-rails'
+
+gem 'cancancan', '~> 1.7'

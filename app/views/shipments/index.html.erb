@@ -90,7 +90,7 @@
         <td><%= number_with_precision(shipment.cb_util, precision: 2, delimiter: ',') %> %</td>
         <td><%= number_with_precision(shipment.lqcb_util, precision: 2, delimiter: ',') %> %</td>
       </tr>
-<td><%= link_to 'Edit', edit_shipment_path(shipment), class: "btn btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_shipment_path(shipment), class: "btn btn-sm" %></td>
         <td><%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
 <% end %>
 </table>

@@ -6,7 +6,7 @@ class ShipmentsController < ApplicationController
   def check_quota
     if user_signed_in?
       if current_user.shipments.count >= 1
-        @quota_warning = "You've reached maximum posts you can import"
+        @quota_warning = "Your account has reached the one shipment max"
       end
     end
   end
@@ -20,6 +20,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments/1
   # GET /shipments/1.json
   def show
+    redirect_to edit_shipment_url
   end
 
   # GET /shipments/new
@@ -29,6 +30,7 @@ class ShipmentsController < ApplicationController
 
   # GET /shipments/1/edit
   def edit
+    authorize! :update, @shipment
   end
 
   # POST /shipments
