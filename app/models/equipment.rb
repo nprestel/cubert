@@ -35,7 +35,7 @@ class Equipment < ActiveRecord::Base
   has_attached_file :equip_image,
     :styles => { :medium => ["500x500", :jpg], :thumb => ["100x100", :jpg] },
     :storage => :s3,
-    :default_url => '/default/missing_:style.jpg',
+    :default_url => '/assets/default_:style.jpg',
     :bucket => 'lajek_images',
     :s3_host_name => 's3.amazonaws.com',
     :s3_credentials => {

@@ -26,3 +26,11 @@
 <br />
 
 <%= link_to 'New Equipment', new_equipment_path, data: { no_turbolink: true } %>
+<br />
+<br />
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @equipment %>
+    </div>
+    <%= will_paginate @equipment, :container => false %>
+  </div>
