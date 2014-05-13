@@ -69,3 +69,5 @@ gem 'highcharts-rails'
 gem 'cancancan', '~> 1.7'
 
 gem 'will_paginate', '~> 3.0'
+
+gem 'rails_12factor', group: :production
