@@ -42,3 +42,13 @@ window.onload = function () {
     Vol.value = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
   };
 };
+
+    $(function() {
+        $('#input-search').on('keyup', function() {
+          var rex = new RegExp($(this).val(), 'i');
+            $('.searchable-container .items').hide();
+            $('.searchable-container .items').filter(function() {
+                return rex.test($(this).text());
+            }).show();
+        });
+    });

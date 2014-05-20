@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20140401011106) do
     t.integer  "user_id"
     t.float    "lqcb_util"
     t.integer  "equipment_id"
+    t.string   "name"
   end
 
   create_table "users", force: true do |t|

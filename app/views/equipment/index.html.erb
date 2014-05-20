@@ -1,36 +1,21 @@
-<h1>Listing equipment</h1>
-
-<table>
-
-<% @equipment.each do |equipment| %>
-  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-    <td>
-      <%= image_tag equipment.equip_image(:thumb) %>
-    </td>
-    <td class="list_description">
-      <dl>
-        <dt><%= equipment.equip_name %></dt>
-        <dd><%= truncate(strip_tags(equipment.description), length: 80) %></dd>
-      </dl>
-    </td>
-    <td class="list_actions">
-      <%= link_to 'Show', equipment %><br/>
-      <%= link_to 'Edit', edit_equipment_path(equipment), data: { no_turbolink: true } %><br/>
-      <%= link_to 'Delete', equipment, method: :delete,
-                  data: { confirm: 'Are you sure? All associated shipments will be deleted!' } %>
-    </td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Equipment', new_equipment_path, data: { no_turbolink: true } %>
-<br />
-<br />
-<div class="digg_pagination">
-    <div class="page_info">
-      <%= page_entries_info @equipment %>
-    </div>
-    <%= will_paginate @equipment, :container => false %>
-  </div>
+<div class="container">
+	<div class="row">
+		<h2>Equipments</h2>
+        <div class="col-lg-12">
+            <input type="search" class="form-control" id="input-search" placeholder="Search Equipments..." >
+        </div>
+        <%= link_to 'New Equipment', new_equipment_path, data: { no_turbolink: true } %>
+        <% @equipment.each do |equipment| %>
+        <div class="searchable-container">
+            <div class="items col-xs-12 col-sm-6 col-md-6 col-lg-6 clearfix">
+               <div class="info-block block-info clearfix">
+                    <div class="square-box pull-left">
+                        <span class="glyphicon glyphicon-user glyphicon-lg"><%= image_tag equipment.equip_image(:thumb) %></span>
+                    </div>
+                    <h4><%= equipment.equip_name %></h4>
+                    <p><%= truncate(strip_tags(equipment.description), length: 80) %></p>
+                    <h5>Mode: <%= equipment.mode %></h5>
+                </div>
+            </div>
+        <% end %>
+</div>
