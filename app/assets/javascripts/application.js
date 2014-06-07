@@ -31,19 +31,46 @@ window.onload = function () {
       W3 = document.getElementById('W3'),
       H3 = document.getElementById('H3'),
       Vol = document.getElementById('Vol');
-
+  
+  L1.onkeyup = function () {
+      VolCalc = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+      if(VolCalc <= 0){Vol.value = ""}
+      else{Vol.value = VolCalc;}};
+  W1.onkeyup = function () {
+      VolCalc = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+      if(VolCalc <= 0){Vol.value = ""}
+      else{Vol.value = VolCalc;}};
   H1.onkeyup = function () {
-    if (((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728) <= 0) {Vol.value = ""}
-            else {
-                Vol.value = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
-            }
-  };
-  H2.onkeyup = function () { // or first.onchange
-    Vol.value = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
-  };
-  H3.onkeyup = function () { // or first.onchange
-    Vol.value = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
-  };
+      VolCalc = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+      if(VolCalc <= 0){Vol.value = ""}
+      else{Vol.value = VolCalc;}};
+      
+  L2.onkeyup = function () {
+      VolCalc = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+      if(VolCalc <= 0){Vol.value = ""}
+      else{Vol.value = VolCalc;}};
+  W2.onkeyup = function () {
+      VolCalc = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+      if(VolCalc <= 0){Vol.value = ""}
+      else{Vol.value = VolCalc;}};
+  H2.onkeyup = function () {
+      VolCalc = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+      if(VolCalc <= 0){Vol.value = ""}
+      else{Vol.value = VolCalc;}};
+
+  L3.onkeyup = function () {
+      VolCalc = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+      if(VolCalc <= 0){Vol.value = ""}
+      else{Vol.value = VolCalc;}};
+  W3.onkeyup = function () {
+      VolCalc = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+      if(VolCalc <= 0){Vol.value = ""}
+      else{Vol.value = VolCalc;}};
+  H3.onkeyup = function () {
+      VolCalc = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+      if(VolCalc <= 0){Vol.value = ""}
+      else{Vol.value = VolCalc;}};
+
 };
 
     $(function() {
