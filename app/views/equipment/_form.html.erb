@@ -1,12 +1,12 @@
 <%= simple_form_for(@equipment, :html => {:multipart => true, :class => 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :equip_name, label: false, placeholder: "Name", :input_html => { :class => "span3" } %>
-  <%= f.input :description, label: false, placeholder: "Description", :input_html => { :class => "span6" } %>
-  <%= f.input :mode, collection:Equipment::MODE_TYPES, label: false, prompt: "Select a mode" %>
+  <%= f.input :equip_name, label: false, placeholder: "Unique ID", :input_html => { :class => "span3", :tabindex => 1} %>
+  <%= f.input :description, label: false, placeholder: "Description", :input_html => { :class => "span6", :tabindex => 2} %>
+  <%= f.input :mode, collection:Equipment::MODE_TYPES, label: false, prompt: "Select a mode", :input_html => {:tabindex => 3} %>
   <div class="row">
-      <div class="span3"><%= f.input :length1_ins, label: false, placeholder: "Length", :input_html => {:id => "L1"} %></div>
-      <div class="span3"><%= f.input :width1_ins, label: false, placeholder: "Width", :input_html => {:id => "W1"} %></div>
-      <div class="span3"><%= f.input :height1_ins, label: false, placeholder: "Height", :input_html => {:id => "H1"} %></div>
+      <div class="span3"><%= f.input :length1_ins, label: false, placeholder: "Length", :input_html => {:id => "L1", :tabindex => 4} %></div>
+      <div class="span3"><%= f.input :width1_ins, label: false, placeholder: "Width", :input_html => {:id => "W1", :tabindex => 5} %></div>
+      <div class="span3"><%= f.input :height1_ins, label: false, placeholder: "Height", :input_html => {:id => "H1", :tabindex => 6} %></div>
   </div>
 <div class="panel-group" id="accordion">
   <div class="panel panel-default">
@@ -37,11 +37,11 @@
 
   <div class="row">
         <br />
-      <div class="span3"><%= f.input :wt_limit_lbs, label: false, placeholder: "Weight Limit" %></div>
-      <div class="span3"><%= f.input :cb_limit_cuft, label: false, placeholder: "Volume Limit", :input_html => {:id => "Vol"} %></div>
+      <div class="span3"><%= f.input :wt_limit_lbs, label: false, placeholder: "Weight Limit", :input_html => {:tabindex => 7} %></div>
+      <div class="span3"><%= f.input :cb_limit_cuft, label: false, placeholder: "Volume Limit", :input_html => {:id => "Vol", :tabindex => 8} %></div>
   </div>
-  <%= f.input :equip_image, :label => "Image" %>
+  <%= f.input :equip_image, :label => "Image", :input_html => {:tabindex => 9} %>
   <%= f.error :base %>
-  <%= f.button :submit, :class => 'btn-primary' %>
-  <%= f.button :button, 'Clear', :type => 'reset', :class => 'btn' %>
+  <%= f.button :submit, :class => 'btn-primary', :input_html => {:tabindex => 10} %>
+  <%= f.button :button, 'Clear', :type => 'reset', :class => 'btn', :input_html => {:tabindex => 11} %>
 <% end %>

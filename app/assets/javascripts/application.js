@@ -32,8 +32,11 @@ window.onload = function () {
       H3 = document.getElementById('H3'),
       Vol = document.getElementById('Vol');
 
-  H1.onkeyup = function () { // or first.onchange
-    Vol.value = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+  H1.onkeyup = function () {
+    if (((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728) <= 0) {Vol.value = ""}
+            else {
+                Vol.value = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
+            }
   };
   H2.onkeyup = function () { // or first.onchange
     Vol.value = ((L1.value * W1.value * H1.value)/1728) + ((L2.value * W2.value * H2.value)/1728) + ((L3.value * W3.value * H3.value)/1728);
