@@ -25,5 +25,8 @@ module Cubert
     :storage => :s3,
     :s3_host_name => 's3-us-west-2.amazonaws.com'
   }
+    # add app/assets/fonts to the asset path
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
   end
 end
