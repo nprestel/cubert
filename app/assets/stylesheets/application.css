@@ -17,7 +17,7 @@
 */
 
 body {
-  padding-top: 85px;
+  padding-top: 0px;
 }
 
 .alert error_notification {
@@ -25,13 +25,13 @@ body {
 }
 
 .well {
-  padding: 5px 10px;
+  padding: 0px 0px;
 }
 
 pre { display: none; }
 
 article .content {
-  margin: 10px 0;
+  margin: 0px 0;
 }
 
 #article-comments {
@@ -115,3 +115,4 @@ article .content {
     height: 1%; }
   *:first-child + html .digg_pagination {
     overflow: hidden; }
+
