@@ -13,9 +13,19 @@
                     <div class="square-box pull-left">
                         <span class="glyphicon glyphicon-user glyphicon-lg"><%= image_tag equipment.equip_image(:thumb) %></span>
                     </div>
-                    <h4><%= equipment.equip_name %></h4>
-                    <p><%= truncate(strip_tags(equipment.description), length: 80) %></p>
-                    <h5>Mode: <%= equipment.mode %></h5>
+                    <div><%= link_to equipment.equip_name, equipment_path(equipment) %><span class="pull-right">Max Weight: <%= number_with_precision(equipment.wt_limit_lbs, :precision => 0, :delimiter => ',') %> lbs</span></div>
+                    <div><%= truncate(strip_tags(equipment.description), length: 80) %><span class="pull-right">Max Volume: <%= number_with_precision(equipment.cb_limit_cuft, :precision => 0, :delimiter => ',') %> cuft</span></div>
+                      
+                      <div class="btn-toolbar pull-right">
+                          <div class="btn-group">
+                            <%= link_to 'Edit', edit_equipment_path(equipment), :class => 'btn btn-mini' %>
+                          </div>
+                          <div class="btn-group">
+                          <%= link_to 'Destroy', equipment_path(equipment), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+                          </div>
+                          <div class="btn-group"></div>
+                    </div>
+                      Mode: <%= equipment.mode %>
                 </div>
             </div>
         <% end %>
