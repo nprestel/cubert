@@ -2,9 +2,9 @@
 <h1 class="text-center" style=font-family:cabinregular><%= @equipment.equip_name %></h1>
 <h2 class="text-center" style=font-family:cabinregular><%= @equipment.description %></h2>
 
-<td>
-  <%= image_tag @equipment.equip_image(:medium) %>
-</td>
+<div id="FooterBarImages">
+    <div style="float:left;"><%= image_tag @equipment.equip_image(:medium) %></div>
+</div>
 
 <p>
   <strong>Mode:</strong>
@@ -24,6 +24,10 @@
 <p>
   <strong>Length1 ins:</strong>
   <%= @equipment.length1_ins %>
+  <strong>Width1 ins:</strong>
+  <%= @equipment.width1_ins %>
+  <strong>Height1 ins:</strong>
+  <%= @equipment.height1_ins %>
 </p>
 
 <p>

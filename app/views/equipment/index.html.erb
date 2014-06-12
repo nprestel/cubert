@@ -6,14 +6,14 @@
             <br>
         </div>
       <div class="row">
-    <table class="table table-striped" id="table">
+    <table class="table table-striped tablesorter" id="table">
       <thead>
         <tr>
           <th></th>
           <th class="text-center">Name</th>
-          <th>Mode</th>
-          <th>Max Weight: </th>
-          <th>Max Volume: </th>
+          <th><div class='text-center'>Mode</div></th>
+          <th><div class='text-center'>Max Weight (lbs): </div></th>
+          <th><div class='text-center'>Max Volume (cuft): </div></th>
           <th class="text-center">Actions</th>
         </tr>
       </thead>
@@ -27,11 +27,10 @@
                 </div>
               </td>
               <td><h4><%= link_to equipment.equip_name, equipment_path(equipment) %></h4></td>
-              <td><%= equipment.mode %></td>
-              <td><%= number_with_precision(equipment.wt_limit_lbs, :precision => 0, :delimiter => ',') %> lbs</td>
-              <td><%= number_with_precision(equipment.cb_limit_cuft, :precision => 0, :delimiter => ',') %> cuft</td>
+              <td><div class='text-center'><%= equipment.mode %></div></td>
+              <td><div class='text-center'><%= number_with_precision(equipment.wt_limit_lbs, :precision => 0, :delimiter => ',') %></div></td>
+              <td><div class='text-center'><%= number_with_precision(equipment.cb_limit_cuft, :precision => 0, :delimiter => ',') %></div></td>
               <td>
-                <%= link_to 'View', equipment_path(equipment), :class => 'btn btn-mini btn-primary' %>
                 <%= link_to 'Edit', edit_equipment_path(equipment), :class => 'btn btn-mini btn-success' %>
                 <%= link_to 'Destroy', equipment_path(equipment), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
               </td>
@@ -48,3 +47,11 @@
           <%= will_paginate @posts, :container => false %>
         </div>
 </div>
+
+<script>
+$(document).ready(function(){
+$(function(){
+$("#table").tablesorter();
+});
+});
+</script>

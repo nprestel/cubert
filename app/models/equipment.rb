@@ -51,11 +51,16 @@ class Equipment < ActiveRecord::Base
   before_validation :uppercase_equip_name
   before_destroy :equipment_do_not_delete?
   before_save :equipment_do_not_delete?
-
+  before_save :set_cb_limit_cuft
+    
+  def set_cb_limit_cuft
+    self.cb_limit_cuft = ((self.length1_ins*self.width1_ins*self.height1_ins)+(self.length2_ins*self.width2_ins*self.height2_ins)+(self.length3_ins*self.width3_ins*self.height3_ins))
+  end
+  
   after_initialize :init
 
   validates_numericality_of :wt_limit_lbs
-  validates_numericality_of :cb_limit_cuft
+  #validates_numericality_of :cb_limit_cuft
   #validate :less_than_calculated_cube
   #def less_than_calculated_cube
    #errors.add(:cb_limit_cuft, "Larger than product of provided dims") unless cb_limit_cuft < ((length1_ins*width1_ins*height1_ins)+(length2_ins*width2_ins*height2_ins)+(length3_ins*width3_ins*height3_ins))
