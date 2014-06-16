@@ -40,7 +40,7 @@
         <div class="span3"><%= f.input :wt_limit_lbs, label: false, placeholder: "Weight Limit", :input_html => {:tabindex => 7} %></div>
         <div class="span3"><%= f.input :cb_limit_cuft, label: false, placeholder: "Volume Limit", disabled: true, :input_html => {:id => "Vol"} %></div>
     </div>
-  <%= f.input :equip_image, :label => "Image", :input_html => {:tabindex => 9} %>
+  <%= f.input :equip_image, :label => "Image", :input_html => {:tabindex => 8} %>
   <%= f.error :base %>
-  <%= f.button :submit, :class => 'btn-primary', :input_html => {:tabindex => 10} %>
+  <div class= pagination-centered><%= f.button :submit, :class => 'btn-primary center', :input_html => {:tabindex => 9} %></div>
 <% end %>

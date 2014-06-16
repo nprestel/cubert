@@ -1,86 +1,53 @@
 
 <h1 class="text-center" style=font-family:cabinregular><%= @equipment.equip_name %></h1>
-<h2 class="text-center" style=font-family:cabinregular><%= @equipment.description %></h2>
+<h2 class="text-center" style=font-family:cabinitalic;font-size:18px;color:#A8A8A8;><%= @equipment.description %></h2>
 
-<div id="FooterBarImages">
+<div class="container-fluid">
+<div class="row-fluid">
+<div id="FooterBarImages" class="pull-left span8">
     <div style="float:left;"><%= image_tag @equipment.equip_image(:medium) %></div>
 </div>
 
-<p>
-  <strong>Mode:</strong>
-  <%= @equipment.mode %>
-</p>
 
-<p>
-  <strong>Wt limit lbs:</strong>
-  <%= number_with_precision(@equipment.wt_limit_lbs, :precision => 0, :delimiter => ',') %>
-</p>
+<div id="TableDiv" class="span4">
+<table class="table">
 
-<p>
-  <strong>Cb limit cuft:</strong>
-  <%= number_with_precision(@equipment.cb_limit_cuft, :precision => 0, :delimiter => ',') %>
-</p>
-
-<p>
-  <strong>Length1 ins:</strong>
-  <%= @equipment.length1_ins %>
-  <strong>Width1 ins:</strong>
-  <%= @equipment.width1_ins %>
-  <strong>Height1 ins:</strong>
-  <%= @equipment.height1_ins %>
-</p>
-
-<p>
-  <strong>Width1 ins:</strong>
-  <%= @equipment.width1_ins %>
-</p>
-
-<p>
-  <strong>Height1 ins:</strong>
-  <%= @equipment.height1_ins %>
-</p>
-
-<% if @equipment.length2_ins != 0 %>
-<p>
-  <strong>Length2 ins:</strong>
-  <%= @equipment.length2_ins %>
-</p>
+<tbody>
+<tr>
+<td><div class='text-right'><strong>Mode:</strong></div></td>
+<td><%= @equipment.mode %></td>
+</tr>
+<tr>
+<td><div class='text-right'><strong>Wt limit:</strong></div></td>
+<td><%= number_with_precision(@equipment.wt_limit_lbs, :precision => 0, :delimiter => ',') %> lbs</td>
+</tr>
+<tr>
+<td><div class='text-right'><strong>Cb limit:</strong></div></td>
+<td><%= number_with_precision(@equipment.cb_limit_cuft, :precision => 0, :delimiter => ',') %> cuft</td>
+</tr>
+<tr>
+<td><div class='text-right'><strong>Dims:</strong></div></td>
+<td><%= @equipment.length1_ins %> in x <%= @equipment.width1_ins %> in x <%= @equipment.height1_ins %> in</td>
+</tr>
+<tr>
+<% if @equipment.length2_ins*@equipment.width2_ins*@equipment.height2_ins>0%>
+<td><div class='text-right'><strong>2nd Dims:</strong></div></td>
+<td><%= @equipment.length2_ins %> in x <%= @equipment.width2_ins %> in x <%= @equipment.height2_ins %> in</td>
 <% end %>
-
-<% if @equipment.width2_ins != 0 %>
-<p>
-  <strong>Width2 ins:</strong>
-  <%= @equipment.width2_ins %>
-</p>
+</tr>
+<tr>
+<% if @equipment.length3_ins*@equipment.width3_ins*@equipment.height3_ins>0%>
+<td><div class='text-right'><strong>3rd Dims:</strong></div></td>
+<td><%= @equipment.length3_ins %> in x <%= @equipment.width3_ins %> in x <%= @equipment.height3_ins %> in</td>
 <% end %>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 
-<% if @equipment.height2_ins != 0 %>
-<p>
-  <strong>Height2 ins:</strong>
-  <%= @equipment.height2_ins %>
-</p>
-<% end %>
-
-<% if @equipment.length3_ins != 0 %>
-<p>
-  <strong>Length3 ins:</strong>
-  <%= @equipment.length3_ins %>
-</p>
-<% end %>
-
-<% if @equipment.width3_ins != 0 %>
-<p>
-  <strong>Width3 ins:</strong>
-  <%= @equipment.width3_ins %>
-</p>
-<% end %>
-
-<% if @equipment.height3_ins != 0 %>
-<p>
-  <strong>Height3 ins:</strong>
-  <%= @equipment.height3_ins %>
-</p>
-<% end %>
-
+<div id="Buttons" class="pull-right">
 <%= render 'backbtn' %> |
 <%= render 'editbtn' %>
+</div>
