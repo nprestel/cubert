@@ -53,6 +53,7 @@ class Equipment < ActiveRecord::Base
   validates :length3_ins, numericality: {greater_than_or_equal_to:0}
   validates :width3_ins, numericality: {greater_than_or_equal_to:0}
   validates :height3_ins, numericality: {greater_than_or_equal_to:0}
+  validates :wt_limit_lbs, numericality: {greater_than_or_equal_to:0}
 
   before_validation :uppercase_equip_name
   before_destroy :equipment_do_not_delete?
@@ -65,7 +66,6 @@ class Equipment < ActiveRecord::Base
   
   after_initialize :init
 
-  validates_numericality_of :wt_limit_lbs, numericality: {greater_than_or_equal_to:0}
   #validates_numericality_of :cb_limit_cuft
   #validate :less_than_calculated_cube
   #def less_than_calculated_cube
