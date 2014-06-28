@@ -5,6 +5,12 @@
             <p class="text-right"><%= link_to 'New Equipment', new_equipment_path, data: { no_turbolink: true } %></p>
             <br>
         </div>
+        
+        <p>
+        Download:
+        <%= link_to "CSV", equipment_index_path(format: :csv) %> |
+      </p>
+      
       <div class="row">
     <table class="table table-striped tablesorter" id="table">
       <thead>

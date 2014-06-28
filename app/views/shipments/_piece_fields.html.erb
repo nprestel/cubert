@@ -5,8 +5,8 @@
       <div class="span3"><%= f.input :width_ins, label: false, placeholder: "Width" %></div>
       <div class="span3"><%= f.input :height_ins, label: false, placeholder: "Height" %></div>
   </div>
-  <%= f.input :weight_lbs, label: false, placeholder: "Weight", :input_html => { :class => "span3" } %>
   <%= f.input :stackability, label: false, placeholder: "Stackability", :input_html => { :class => "span3" } %>
+  <%= f.input :weight_lbs, label: false, placeholder: "Gross Weight", :input_html => { :class => "span3" } %>
   <%= f.input :count, label: false, placeholder: "How many", :input_html => { :class => "span3" } %>
   <%= f.input :_destroy, :as => :boolean, :label => 'Remove Piece' %>
 

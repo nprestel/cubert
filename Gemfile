@@ -73,3 +73,9 @@ gem 'will_paginate', '~> 3.0'
 gem 'rails_12factor', group: :production
 
 ruby "2.1.0"
+
+gem 'write_xlsx'
+
+# gem 'google_drive'
+
+# gem 'roo'

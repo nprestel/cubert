@@ -6,6 +6,11 @@ class EquipmentController < ApplicationController
   # GET /equipment.json
   def index
     @equipment = Equipment.paginate(:page => params[:page], :per_page => 5)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @equipment.to_csv }
+      #format.xls # { send_data @equipment.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /equipment/1

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<ss:Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <ss:Worksheet ss:Name="Sheet1">
+    <ss:Table>
+      <ss:Row>
+        <ss:Cell><ss:Data ss:Type="String">ID</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Equipment Name</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Description</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Mode</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Weight Limit(lbs)</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Cube Limit (cuft)</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Length1</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Width1</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Height1</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Length2</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Width2</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Height2</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Length3</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Width3</ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String">Height3</ss:Data></ss:Cell>
+      </ss:Row>
+    <% @equipment.each do |equipment| %>
+      <ss:Row>
+        <ss:Cell><ss:Data ss:Type="Number"><%= equipment.id %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String"><%= equipment.equip_name %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String"><%= equipment.description %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="String"><%= equipment.mode %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="Number"><%= equipment.wt_limit_lbs %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="Number"><%= equipment.cb_limit_cuft %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="Number"><%= equipment.length1_ins %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="Number"><%= equipment.width1_ins %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="Number"><%= equipment.height1_ins %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="Number"><%= equipment.length2_ins %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="Number"><%= equipment.width2_ins %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="Number"><%= equipment.height2_ins %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="Number"><%= equipment.length3_ins %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="Number"><%= equipment.width3_ins %></ss:Data></ss:Cell>
+        <ss:Cell><ss:Data ss:Type="Number"><%= equipment.height3_ins %></ss:Data></ss:Cell>
+      </ss:Row>
+    <% end %>
+    </ss:Table>
+  </ss:Worksheet>
+</ss:Workbook>

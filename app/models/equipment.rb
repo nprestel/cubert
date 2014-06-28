@@ -60,6 +60,15 @@ class Equipment < ActiveRecord::Base
   before_save :equipment_do_not_delete?
   before_save :set_cb_limit_cuft
     
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |equipment|
+        csv << equipment.attributes.values_at(*column_names)
+      end
+    end
+  end
+  
   def set_cb_limit_cuft
     self.cb_limit_cuft = ((self.length1_ins*self.width1_ins*self.height1_ins)+(self.length2_ins*self.width2_ins*self.height2_ins)+(self.length3_ins*self.width3_ins*self.height3_ins))
   end
