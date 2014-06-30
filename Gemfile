@@ -74,7 +74,9 @@ gem 'rails_12factor', group: :production
 
 ruby "2.1.0"
 
-gem 'write_xlsx'
+gem 'axlsx', '~> 2.0'
+
+gem "axlsx_rails"
 
 # gem 'google_drive'
 
