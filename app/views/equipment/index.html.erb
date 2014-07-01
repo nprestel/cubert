@@ -46,12 +46,19 @@
       </tbody>
     </table>
       </div>
-        <div class="digg_pagination">
+        <div class="digg_pagination pull-right">
           <div class="page_info">
             <%= page_entries_info @posts %>
           </div>
           <%= will_paginate @posts, :container => false %>
         </div>
+        <h4>Import Products</h4>
+
+<%= form_tag import_equipment_index_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+        
 </div>
 
 <script>

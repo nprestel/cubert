@@ -13,7 +13,9 @@ Cubert::Application.routes.draw do
 
   resources :shipments
 
-  resources :equipment
+  resources :equipment do
+    collection { post :import }
+  end
 
   # root :to => "shipments#index"
   root :controller => 'static', :action => '/'

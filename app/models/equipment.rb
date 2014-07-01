@@ -69,6 +69,28 @@ class Equipment < ActiveRecord::Base
     end
   end
   
+  def self.import(file)
+    allowed_attributes = ["equip_name", "description", "mode", "wt_limit_lbs", "cb_limit_cuft", "length1_ins", "width1_ins", "height1_ins", "length2_ins", "width2_ins", "height2_ins", "length3_ins", "width3_ins", "height3_ins"]
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      equipment = find_by_id(row["id"]) || new
+      equipment.attributes = row.to_hash.select { |k,v| allowed_attributes.include? k }
+      equipment.save!
+    end
+  end
+  
+  def self.open_spreadsheet(file)
+    case File.extname(file.original_filename)
+    when ".csv" then Roo::CSV.new(file.path, file_warning: :ignore)
+    when ".xls" then Roo::Excel.new(file.path, file_warning: :ignore)
+    when ".xlsx" then Roo::Excelx.new(file.path, file_warning: :ignore)
+    when ".ods" then Roo::OpenOffice.new(file.path, file_warning: :ignore)
+    else raise "Unknown file type: #{file.original_filename}"
+    end
+  end
+  
   def set_cb_limit_cuft
     self.cb_limit_cuft = ((self.length1_ins*self.width1_ins*self.height1_ins)+(self.length2_ins*self.width2_ins*self.height2_ins)+(self.length3_ins*self.width3_ins*self.height3_ins))
   end

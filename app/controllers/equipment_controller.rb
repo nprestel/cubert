@@ -9,7 +9,7 @@ class EquipmentController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @equipment.to_csv }
-      format.xlsx {render xlsx: 'download',filename: "equipment.xlsx"}
+      format.xlsx {render xlsx: 'download', filename: "equipment.xlsx"}
     end
   end
 
@@ -67,6 +67,11 @@ class EquipmentController < ApplicationController
       format.json { head :no_content }
       flash[:error] = @equipment.errors.full_messages.join(' ')
     end
+  end
+  
+  def import
+    Equipment.import(params[:file])
+    redirect_to equipment_index_url, notice: "Equipment imported."
   end
 
   private

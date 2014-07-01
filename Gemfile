@@ -78,6 +78,6 @@ gem 'axlsx', '~> 2.0'
 
 gem "axlsx_rails"
 
-# gem 'google_drive'
+gem 'google_drive'
 
-# gem 'roo'
+gem 'roo'

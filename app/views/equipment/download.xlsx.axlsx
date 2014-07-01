@@ -1,7 +1,7 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "Equipment") do |sheet|
-    sheet.add_row ['ID', 'Name', 'Description', 'Mode', 'Weight Limit (lbs)', 'Cube Limit (cubic ft)', 'Length1 (ins)', 'Width1 (ins)', 'Height1 (ins)', 'Length2 (ins)', 'Width2 (ins)', 'Height2 (ins)', 'Length3 (ins)', 'Width3 (ins)', 'Height3 (ins)']
+    sheet.add_row ['id', 'equip_name', 'description', 'mode', 'wt_limit_lbs', 'cb_limit_cuft', 'length1_ins', 'width1_ins', 'height1_ins', 'length2_ins', 'width2_ins', 'height2_ins', 'length3_ins', 'width3_ins', 'height3_ins']
     @equipment.each do |equipment|
-        sheet.add_row [equipment.id, equipment.equip_name,equipment.description,equipment.mode, equipment.wt_limit_lbs, equipment.cb_limit_cuft, equipment.length1_ins, equipment.width1_ins, equipment.height1_ins, equipment.length2_ins, equipment.width2_ins, equipment.height2_ins, equipment.length3_ins, equipment.width3_ins, equipment.height3_ins]
+        sheet.add_row [equipment.id, equipment.equip_name, equipment.description, equipment.mode, equipment.wt_limit_lbs, equipment.cb_limit_cuft, equipment.length1_ins, equipment.width1_ins, equipment.height1_ins, equipment.length2_ins, equipment.width2_ins, equipment.height2_ins, equipment.length3_ins, equipment.width3_ins, equipment.height3_ins]
     end
 end
