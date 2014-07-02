@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  length_ins: 1.5
+  width_ins: 1.5
+  height_ins: 1.5
+  max_stack_wt_lbs: 1.5
+  RRR_IB: 1
+  RRR_OB: 1
+  lock_length: false
+  lock_width: false
+  do_not_delete: false
+
+two:
+  name: MyString
+  description: MyText
+  length_ins: 1.5
+  width_ins: 1.5
+  height_ins: 1.5
+  max_stack_wt_lbs: 1.5
+  RRR_IB: 1
+  RRR_OB: 1
+  lock_length: false
+  lock_width: false
+  do_not_delete: false

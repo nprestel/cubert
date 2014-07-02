@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528171105) do
+ActiveRecord::Schema.define(version: 20140702014909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "containers", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.float    "length_ins"
+    t.float    "width_ins"
+    t.float    "height_ins"
+    t.float    "max_stack_wt_lbs"
+    t.integer  "RRR_IB"
+    t.integer  "RRR_OB"
+    t.boolean  "lock_length"
+    t.boolean  "lock_width"
+    t.boolean  "do_not_delete",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "equipment", force: true do |t|
     t.string   "equip_name"
