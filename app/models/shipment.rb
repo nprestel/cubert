@@ -10,6 +10,7 @@
 #  cb_util           :float
 #  created_at        :datetime
 #  updated_at        :datetime
+#  name              :string(255)
 #  user_id           :integer
 #  lqcb_util         :float
 #  equipment_id      :integer
