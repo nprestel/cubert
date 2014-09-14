@@ -1,0 +1,26 @@
+<h1 class="text-center" style=font-family:cabinregular>Sign Up</h1>
+<div class="row top60"></div>
+
+<div class="row">
+   <div class="span3"></div><!--/.span3-->
+    <div class="well span6" align="center">
+			<%= simple_form_for(resource, as: resource_name, html: { class: 'form-horizontal' }, url: registration_path(resource_name)) do |f| %>
+			  <%= f.error_notification %>
+
+			  <div class="form-inputs">
+			    <%= f.input :email, required: true, autofocus: true %>
+			    <%= f.input :password, required: true %>
+			    <%= f.input :password_confirmation, required: true%>
+			  </div>
+			<div class="row top30"></div>
+			  <div class="control-group">
+				<div class="controls"  style="margin-left: 0">
+			    	<%= f.button :submit, "Sign up" %>
+			  	</div>
+			   </div>
+			<% end %>
+    </div><!--/.well span6-->
+   <div class="span3"></div><!--/.span3-->
+ </div><!--/.row--> 
+<div class="row top30"></div>
+<%= render "devise/shared/links" %>
